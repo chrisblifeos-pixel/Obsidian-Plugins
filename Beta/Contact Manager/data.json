@@ -1,0 +1,27 @@
+{
+  "enabledContactTypes": [
+    "People",
+    "Company",
+    "TradeUnion",
+    "Organization"
+  ],
+  "peopleFolders": [
+    "People"
+  ],
+  "companyFolders": [
+    "Companies"
+  ],
+  "tradeUnionFolders": [
+    "Trade Unions"
+  ],
+  "organizationFolders": [
+    "Organizations"
+  ],
+  "autoCompleteCompanyManagement": true,
+  "autoCompleteTradeUnionPeople": true,
+  "autoCompleteOrganizationPeople": true,
+  "peopleTemplate": "---\naliases: []\ncollections:\ncompany:\ncountry:\nProfile Image:\ndescription:\nemail:\nlastUpdated:\nlinkedin:\norganization:\nphone:\nrole:\ntags:\ntitle:\ntradeUnion:\ntype: People\nrelated: []\n---\n\n## Contact Card\n\n## Notes\n\n",
+  "companyTemplate": "---\ntype: Company\ncoverImage:\ndescription:\nlastUpdated:\nactiveProjects:\ncontactInfo:\ncoordinator:\nwebsite:\nfolder:\nmanagement:\ntags:\ncountry:\ncollections:\ntitle:\naliases: []\nrelated: []\n---\n\n## Contact Card\n\n## Notes\n\n",
+  "tradeUnionTemplate": "---\naliases: []\nactiveProjects:\ncollections:\ncontactInfo:\ncountry:\ndescription:\nfolder:\nlastUpdated:\ncoverImage:\npeople:\ntags:\ntitle:\ntype: TradeUnion\nwebsite:\nrelated: []\n---\n\n## Contact Card\n\n## Notes\n\n",
+  "organizationTemplate": "---\nactiveProjects:\naliases: []\ncollections:\ncontactInfo:\ncountry:\ncoverImage:\ndescription:\nfolder:\nlastUpdated:\npeople:\ntags:\ntitle:\ntype: Organization\nwebsite:\nrelated: []\n---\n\n## Contact Card\n\n## Notes\n\n"
+}

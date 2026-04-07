@@ -1,0 +1,2313 @@
+/* ContactManager Plugin Styles
+ *
+ * CONTACT TYPE CSS NOMENCLATURE:
+ * - People → .people
+ * - Company → .company
+ * - TradeUnion → .tradeunion (user can refer to as "trade union" or "union")
+ * - Organization → .organization
+ *
+ * All contact type CSS classes use lowercase for consistency.
+ */
+
+/* Settings Tab Improvements */
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 14px;
+}
+
+.autocomplete-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px var(--interactive-accent-hover);
+}
+
+.autocomplete-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--background-modifier-border-hover);
+    transition: background-color 0.15s ease;
+}
+
+.autocomplete-suggestion:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-suggestion:hover,
+.autocomplete-suggestion.selected {
+    background: var(--background-modifier-hover);
+}
+
+.autocomplete-suggestion.create-suggestion {
+    color: var(--interactive-accent);
+    font-style: italic;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.autocomplete-suggestion.create-suggestion:hover {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+/* Multiple autocomplete field styles */
+.autocomplete-container.multiple .values-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.value-item {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.value-remove {
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.value-remove:hover {
+    opacity: 1;
+    background: var(--interactive-accent-hover);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* External link styling */
+.external-link {
+    color: var(--link-color) !important;
+    text-decoration: underline;
+}
+
+.external-link:hover {
+    color: var(--link-color-hover) !important;
+}
+
+/* Tags display */
+.tags-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 6px;
+    background: var(--background-secondary);
+    border-radius: 4px;
+    min-height: 30px;
+}
+
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tag-remove {
+    margin-left: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+}
+
+.tag-remove:hover {
+    opacity: 1;
+}
+
+/* Context Menu */
+.contact-context-menu {
+    position: fixed;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    min-width: 160px;
+    padding: 6px 0;
+}
+
+.context-menu-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.context-menu-item:hover {
+    background: var(--background-modifier-hover);
+}
+
+.context-menu-item.delete {
+    color: var(--text-error);
+}
+
+.context-menu-item.delete:hover {
+    background: var(--background-modifier-error-hover);
+}
+
+/* Modal button container */
+.modal-button-container {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+/* Image Crop Modal */
+/* Old definition removed - using the new narrow one below */
+
+/* Old crop-container definition removed - using the new one below */
+
+/* Another old crop-container definition removed */
+
+.crop-image {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.image-crop-modal .crop-overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+}
+
+.image-crop-modal .crop-box {
+    position: absolute;
+    border: 3px solid #007acc;
+    background: rgba(0, 122, 204, 0.1);
+    cursor: move;
+    pointer-events: all;
+    touch-action: none;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 200;
+    min-width: 50px;
+    min-height: 50px;
+}
+
+.crop-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background: rgba(0, 122, 204, 0.8);
+    pointer-events: none;
+}
+
+.crop-box::after {
+    content: '✱';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Resize handles */
+.image-crop-modal .resize-handle {
+    position: absolute;
+    background: #007acc;
+    border: 2px solid white;
+    border-radius: 4px;
+    width: 14px;
+    height: 14px;
+    z-index: 300;
+    pointer-events: all;
+    touch-action: none;
+}
+
+/* Larger handles for touch devices */
+@media (max-width: 768px) {
+    .image-crop-modal .resize-handle {
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+    }
+}
+
+.resize-handle:hover {
+    background: #005c9b;
+    transform: scale(1.2);
+}
+
+/* Corner handles */
+.image-crop-modal .resize-nw {
+    top: -7px;
+    left: -7px;
+    cursor: nw-resize;
+}
+
+.image-crop-modal .resize-ne {
+    top: -7px;
+    right: -7px;
+    cursor: ne-resize;
+}
+
+.image-crop-modal .resize-sw {
+    bottom: -7px;
+    left: -7px;
+    cursor: sw-resize;
+}
+
+.image-crop-modal .resize-se {
+    bottom: -7px;
+    right: -7px;
+    cursor: se-resize;
+}
+
+/* Edge handles */
+.image-crop-modal .resize-n {
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: n-resize;
+}
+
+.image-crop-modal .resize-s {
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: s-resize;
+}
+
+.image-crop-modal .resize-e {
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: e-resize;
+}
+
+.image-crop-modal .resize-w {
+    left: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: w-resize;
+}
+
+/* Touch device adjustments */
+@media (max-width: 768px) {
+    .image-crop-modal .resize-nw,
+    .image-crop-modal .resize-ne,
+    .image-crop-modal .resize-sw,
+    .image-crop-modal .resize-se {
+        top: -9px;
+        left: -9px;
+        right: -9px;
+        bottom: -9px;
+    }
+
+    .image-crop-modal .resize-n,
+    .image-crop-modal .resize-s {
+        top: -9px;
+        bottom: -9px;
+    }
+
+    .image-crop-modal .resize-e,
+    .image-crop-modal .resize-w {
+        right: -9px;
+        left: -9px;
+    }
+}
+
+.crop-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.aspect-ratio-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.aspect-ratio-controls label {
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.aspect-ratio-select {
+    padding: 6px 12px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+}
+
+.crop-area-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.image-preview {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    background: var(--background-secondary);
+    text-align: center;
+}
+
+.preview-image {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.multiple-folders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px; /* Consistent maximum width */
+}
+
+.folder-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.folder-row .autocomplete-container {
+    flex: 1;
+}
+
+.folder-remove-button {
+    padding: 8px 12px;
+    background: var(--interactive-normal);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    color: var(--text-normal);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.folder-remove-button:hover {
+    background: var(--interactive-hover);
+    color: var(--text-error);
+    border-color: var(--text-error);
+}
+
+.folder-add-button {
+    padding: 8px 16px;
+    background: var(--interactive-accent);
+    border: none;
+    border-radius: 6px;
+    color: var(--text-on-accent);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    align-self: flex-start;
+}
+
+.folder-add-button:hover {
+    background: var(--interactive-accent-hover);
+    transform: translateY(-1px);
+}
+
+/* ContactManager Plugin Settings - Specific selectors only */
+.vertical-tab-content[data-tab="contact-manager"] .setting-item .multiple-folders-container,
+.modal-content:has(.setting-item .multiple-folders-container) .multiple-folders-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.vertical-tab-content[data-tab="contact-manager"] .setting-item .setting-item-control,
+.modal-content:has(.setting-item .multiple-folders-container) .setting-item-control {
+    width: 100%;
+    max-width: 450px;
+}
+
+.vertical-tab-content[data-tab="contact-manager"] .folder-row,
+.modal-content:has(.setting-item .multiple-folders-container) .folder-row {
+    width: 100%;
+}
+
+.vertical-tab-content[data-tab="contact-manager"] .folder-add-button,
+.modal-content:has(.setting-item .multiple-folders-container) .folder-add-button {
+    margin-left: 0;
+    align-self: flex-start;
+}
+
+/* Instructions Section Styles */
+.instructions-section {
+    margin-bottom: 24px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.instructions-header {
+    background: var(--background-modifier-hover);
+    padding: 0;
+}
+
+.instructions-toggle-button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-normal);
+    transition: background 0.15s ease;
+}
+
+.instructions-toggle-button:hover {
+    background: var(--background-modifier-hover);
+}
+
+.instructions-content {
+    border-top: 1px solid var(--background-modifier-border);
+    background: var(--background-primary);
+}
+
+.language-selector {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    background: var(--background-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-normal);
+}
+
+.language-select {
+    padding: 4px 8px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 13px;
+}
+
+.instructions-text {
+    padding: 16px;
+    line-height: 1.6;
+}
+
+.instructions-text h4 {
+    margin: 16px 0 8px 0;
+    color: var(--text-normal);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.instructions-text h4:first-child {
+    margin-top: 0;
+}
+
+.instructions-text p {
+    margin: 8px 0;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.instructions-text ul {
+    margin: 8px 0 16px 0;
+    padding-left: 20px;
+}
+
+.instructions-text li {
+    margin: 4px 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.instructions-text strong {
+    color: var(--text-normal);
+    font-weight: 600;
+}
+
+/* Modern Contact Cards */
+.contact-note-card {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 12px;
+    padding: 0;
+    margin: 20px 0;
+    background: var(--background-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+}
+
+.contact-note-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Card Layout */
+.card-layout {
+    display: flex;
+    min-height: 200px;
+}
+
+.card-left-section {
+    flex: 0 0 180px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+.card-right-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image Sections */
+.card-image-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.card-company-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: white;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.card-image-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.card-logo-overlay {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    border: 3px solid white;
+}
+
+.card-logo-overlay-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Header Section */
+.card-header-section {
+    margin-bottom: 16px;
+}
+
+.card-contact-name {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--text-normal);
+    line-height: 1.2;
+}
+
+/* Info Grid */
+.card-info-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-info-item {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Special Sections */
+.card-management-section,
+.card-union-section,
+.card-members-section {
+    background: var(--background-secondary);
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid var(--interactive-accent);
+}
+
+.card-management-section {
+    border-left-color: #22c55e;
+}
+
+.card-union-section {
+    border-left-color: #ef4444;
+}
+
+.card-members-section {
+    border-left-color: #8b5cf6;
+}
+
+.card-section-label {
+    font-weight: 600;
+    font-size: 0.85em;
+    color: var(--text-normal);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-management-text,
+.card-union-text,
+.card-members-text {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.3;
+}
+
+/* Tags Section */
+.card-tags-section {
+    margin-top: 8px;
+}
+
+.card-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.card-tag-note {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.card-tag-note:hover {
+    background: var(--interactive-accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Summary Section */
+.card-summary-section {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.card-summary-text {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* Light mode styling - matching grid card colors with enhanced background opacity */
+.theme-light .contact-note-card.people .card-left-section {
+    background: rgba(59, 130, 246, 0.3);
+    border-left: 4px solid #3b82f6;
+}
+
+.theme-light .contact-note-card.company .card-left-section {
+    background: rgba(139, 92, 246, 0.3);
+    border-left: 4px solid #8b5cf6;
+}
+
+/* TradeUnion type in light mode - Note: user can refer to this as "trade union" or "union" but CSS uses "tradeunion" */
+.theme-light .contact-note-card.tradeunion .card-left-section {
+    background: rgba(239, 68, 68, 0.3);
+    border-left: 4px solid #ef4444;
+}
+
+.theme-light .contact-note-card.organization .card-left-section {
+    background: rgba(21, 128, 61, 0.3);
+    border-left: 4px solid #15803d;
+}
+
+/* Contact type specific accent colors for dynamic sections */
+.contact-note-card.company .card-management-section {
+    border-left: 3px solid #3b82f6;
+    padding-left: 12px;
+    margin: 8px 0;
+}
+
+.contact-note-card.company .card-union-section {
+    border-left: 3px solid #ef4444;
+    padding-left: 12px;
+    margin: 8px 0;
+}
+
+.contact-note-card.tradeunion .card-members-section,
+.contact-note-card.organization .card-members-section {
+    border-left: 3px solid #15803d;
+    padding-left: 12px;
+    margin: 8px 0;
+}
+
+/* Section labels styling */
+.card-section-label {
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-bottom: 6px;
+    color: var(--text-normal);
+}
+
+.contact-note-card.company .card-management-section .card-section-label {
+    color: #3b82f6;
+}
+
+.contact-note-card.company .card-union-section .card-section-label {
+    color: #ef4444;
+}
+
+.contact-note-card.tradeunion .card-members-section .card-section-label,
+.contact-note-card.organization .card-members-section .card-section-label {
+    color: #15803d;
+}
+
+/* Contact type specific field label colors for dropdown fields */
+.contact-note-card.people .dropdown-field .field-label {
+    color: #3b82f6;
+}
+
+.contact-note-card.company .dropdown-field .field-label {
+    color: #8b5cf6;
+}
+
+.contact-note-card.tradeunion .dropdown-field .field-label {
+    color: #ef4444;
+}
+
+.contact-note-card.organization .dropdown-field .field-label {
+    color: #15803d;
+}
+
+/* Dark mode gradients - Opción 3: Borde + fondo sutil */
+.theme-dark .contact-note-card.people .card-left-section {
+    background: rgba(147, 197, 253, 0.05);
+    border-left: 4px solid rgba(147, 197, 253, 0.6);
+}
+
+.theme-dark .contact-note-card.company .card-left-section {
+    background: rgba(134, 239, 172, 0.05);
+    border-left: 4px solid rgba(134, 239, 172, 0.6);
+}
+
+/* TradeUnion type in dark mode */
+.theme-dark .contact-note-card.tradeunion .card-left-section {
+    background: rgba(239, 68, 68, 0.05);
+    border-left: 4px solid rgba(239, 68, 68, 0.6);
+}
+
+.theme-dark .contact-note-card.organization .card-left-section {
+    background: rgba(139, 92, 246, 0.05);
+    border-left: 4px solid rgba(139, 92, 246, 0.6);
+}
+
+/* Base card styling (legacy) */
+.contact-card {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    background: var(--background-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Contact type specific styling */
+.contact-card.people {
+    border-left: 4px solid var(--color-blue);
+}
+
+.contact-card.company {
+    border-left: 4px solid var(--color-green);
+}
+
+/* Legacy card style for TradeUnion - standardized nomenclature */
+.contact-card.tradeunion {
+    border-left: 4px solid var(--color-red);
+}
+
+.contact-card.organization {
+    border-left: 4px solid var(--color-purple);
+}
+
+/* Header styling */
+.contact-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    flex-shrink: 0;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--background-modifier-border);
+}
+
+.org-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.info-container {
+    flex: 1;
+    min-width: 200px;
+}
+
+.contact-name {
+    margin: 0 0 8px 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-normal);
+}
+
+.contact-role {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+/* Body styling */
+.contact-body {
+    line-height: 1.5;
+}
+
+.contact-fields {
+    display: grid;
+    gap: 8px;
+}
+
+.contact-field {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.field-label {
+    font-weight: 500;
+    color: var(--text-normal);
+    min-width: 120px;
+    flex-shrink: 0;
+}
+
+.field-value {
+    color: var(--text-muted);
+    flex: 1;
+    min-width: 150px;
+}
+
+.field-value a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.field-value a:hover {
+    text-decoration: underline;
+}
+
+.internal-link {
+    color: var(--link-color) !important;
+    cursor: pointer;
+}
+
+.internal-link:hover {
+    text-decoration: underline;
+}
+
+.array-value {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
+
+.separator {
+    color: var(--text-muted);
+}
+
+/* Markdown field styling */
+.markdown-field {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.markdown-field .field-label {
+    margin-bottom: 4px;
+}
+
+.markdown-value {
+    width: 100%;
+    padding: 8px;
+    background: var(--background-secondary);
+    border-radius: 4px;
+    border: 1px solid var(--background-modifier-border);
+}
+
+/* Dropdown styling */
+.dropdown-field {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 12px 0;
+}
+
+.dropdown-container {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.dropdown-list {
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 4px 0;
+}
+
+.dropdown-item {
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--background-modifier-hover);
+}
+
+.dropdown-empty {
+    padding: 8px 12px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.dropdown-error {
+    padding: 8px 12px;
+    color: var(--text-error);
+    font-style: italic;
+}
+
+/* Edit button styling */
+.contact-edit-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.contact-card:hover .contact-edit-button {
+    opacity: 1;
+}
+
+.contact-edit-button:hover {
+    background: var(--interactive-accent-hover);
+}
+
+/* Modal styling */
+.contact-creator-modal .modal-content,
+.contact-editor-modal .modal-content {
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.contact-type-selection {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-type-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.contact-type-button {
+    background: var(--background-secondary);
+    border: 2px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.contact-type-button:hover {
+    border-color: var(--interactive-accent);
+    background: var(--background-modifier-hover);
+    transform: translateY(-2px);
+}
+
+.contact-type-description {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+/* Form styling */
+.contact-form,
+.contact-edit-form {
+    padding: 20px;
+}
+
+.form-section {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section h4 {
+    margin: 0 0 16px 0;
+    color: var(--text-normal);
+    font-size: 1.1em;
+}
+
+.image-selection {
+    margin-top: 12px;
+}
+
+.form-actions {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.button-container {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.button-container button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.mod-cancel {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+}
+
+.mod-cancel:hover {
+    background: var(--background-modifier-hover);
+}
+
+.mod-cta {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.mod-cta:hover {
+    background: var(--interactive-accent-hover);
+}
+
+.mod-warning {
+    background: var(--color-orange);
+    color: white;
+}
+
+.mod-warning:hover {
+    background: var(--color-orange);
+    filter: brightness(1.1);
+}
+
+/* Settings styling */
+.setting-item-description {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Ribbon icon styling */
+.contact-cards-ribbon-icon {
+    color: var(--icon-color);
+}
+
+.contact-cards-ribbon-icon:hover {
+    color: var(--icon-color-hover);
+}
+
+/* Dark theme adjustments */
+.theme-dark .contact-card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .contact-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 12px;
+        margin: 12px 0;
+    }
+
+    .contact-header {
+        gap: 12px;
+    }
+
+    .profile-image,
+    .org-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-name {
+        font-size: 1.3em;
+    }
+
+    .contact-field {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .field-label {
+        min-width: auto;
+        font-size: 0.9em;
+    }
+
+    .field-value {
+        min-width: auto;
+        margin-left: 8px;
+    }
+
+    .contact-type-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .button-container button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-fields {
+        gap: 12px;
+    }
+
+    .dropdown-list {
+        max-height: 100px;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        margin: 5vh;
+    }
+}
+
+/* Animation classes */
+.contact-card-enter {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.contact-card-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Focus and accessibility */
+.contact-card:focus,
+.contact-type-button:focus,
+.dropdown-item:focus {
+    outline: 2px solid var(--interactive-accent);
+    outline-offset: 2px;
+}
+
+.dropdown-item[aria-selected="true"] {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+/* Loading states */
+.dropdown-loading {
+    padding: 8px 12px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.dropdown-loading::after {
+    content: "...";
+    animation: loading-dots 1s infinite;
+}
+
+@keyframes loading-dots {
+    0%, 20% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Error states */
+.contact-card-error {
+    border-color: var(--text-error);
+    background: var(--background-primary-alt);
+}
+
+.field-error {
+    color: var(--text-error);
+    border-color: var(--text-error);
+}
+
+/* Success states */
+.contact-card-success {
+    border-color: var(--color-green);
+}
+
+/* Tags styling */
+.tags-field .field-value {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag-item {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tag-item:hover {
+    background: var(--interactive-accent-hover);
+    transform: translateY(-1px);
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+
+.p-1 { padding: 4px; }
+.p-2 { padding: 8px; }
+.p-3 { padding: 12px; }
+.p-4 { padding: 16px; }
+
+/* Contacts View Styles */
+.contacts-view-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.contacts-header {
+    background: var(--background-secondary);
+    padding: 20px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    flex-shrink: 0;
+}
+
+.contacts-title {
+    margin: 0 0 16px 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-normal);
+}
+
+.contacts-search-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.contacts-search-input-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contacts-search-input {
+    width: 100%;
+    padding: 8px 16px;
+    padding-right: 40px; /* Make room for clear button */
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 0.9em;
+}
+
+.contacts-search-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+}
+
+.contacts-search-clear {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.contacts-search-clear:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+.contacts-search-clear:active {
+    background: var(--background-modifier-border);
+}
+
+.contacts-results-count {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.contacts-action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 0; /* Allow shrinking */
+}
+
+.contacts-refresh-button {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.contacts-refresh-button:hover {
+    background: var(--background-modifier-hover);
+}
+
+.contacts-refresh-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.contacts-add-button {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.contacts-add-button:hover {
+    background: var(--interactive-accent-hover);
+}
+
+/* LinkedIn link styling */
+.linkedin-link {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+/* Image crop modal - SIMPLE AND CENTERED */
+.image-crop-modal {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px !important;
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.image-crop-modal * {
+    box-sizing: border-box !important;
+    max-width: 280px !important;
+}
+
+/* Force all modal components to respect width */
+.image-crop-modal .modal-header {
+    width: 280px !important;
+    max-width: 280px !important;
+    padding: 6px !important;
+    margin: 0 !important;
+}
+
+.image-crop-modal .modal-close-button {
+    right: 6px !important;
+    top: 6px !important;
+}
+
+.image-crop-modal .modal-title {
+    font-size: 14px !important;
+    padding: 8px !important;
+    width: 280px !important;
+    max-width: 280px !important;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-crop-modal .modal-content {
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+    max-width: 280px !important;
+    width: 280px !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+.crop-container {
+    width: 280px !important;
+    height: 250px !important;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+}
+
+.image-crop-modal .crop-image {
+    max-width: 260px !important;
+    max-height: 240px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.image-crop-modal .crop-controls {
+    width: 280px;
+    padding: 8px;
+    background: var(--background-primary);
+    border-top: 1px solid var(--background-modifier-border);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.image-crop-modal .aspect-ratio-controls {
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.image-crop-modal .aspect-ratio-controls label {
+    display: inline;
+    margin-right: 6px;
+    font-size: 11px;
+    color: var(--text-normal);
+}
+
+.image-crop-modal .aspect-ratio-select {
+    display: inline;
+    width: auto;
+    min-width: 100px;
+    padding: 3px;
+    box-sizing: border-box;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    color: var(--text-normal);
+    font-size: 11px;
+}
+
+.image-crop-modal .modal-button-container {
+    width: 280px;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    background: var(--background-primary);
+    border-top: 1px solid var(--background-modifier-border);
+    margin: 0 auto;
+}
+
+.image-crop-modal .modal-button-container button {
+    min-width: 60px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.contacts-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tabs */
+.contacts-tabs {
+    display: flex;
+    background: var(--background-primary);
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding: 0 20px;
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--background-modifier-border) transparent; /* Firefox */
+}
+
+/* Hide scrollbar but keep functionality */
+.contacts-tabs::-webkit-scrollbar {
+    height: 4px;
+}
+
+.contacts-tabs::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.contacts-tabs::-webkit-scrollbar-thumb {
+    background: var(--background-modifier-border);
+    border-radius: 2px;
+}
+
+.contacts-tabs::-webkit-scrollbar-thumb:hover {
+    background: var(--background-modifier-border-hover);
+}
+
+.contacts-tab {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-size: 0.9em;
+    color: var(--text-muted);
+    flex-shrink: 0; /* Prevent tabs from shrinking */
+    min-width: fit-content; /* Ensure tabs maintain their natural width */
+}
+
+.contacts-tab:hover {
+    color: var(--text-normal);
+    background: var(--background-modifier-hover);
+}
+
+.contacts-tab.active {
+    color: var(--interactive-accent);
+    border-bottom-color: var(--interactive-accent);
+    background: var(--background-modifier-hover);
+}
+
+.tab-count {
+    opacity: 0.7;
+    font-size: 0.8em;
+}
+
+/* Grid */
+.contacts-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    overflow-y: auto;
+    flex: 1;
+    align-items: stretch;
+    grid-auto-rows: min-content;
+}
+
+.contact-grid-card {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-grid-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--interactive-accent);
+}
+
+.contact-grid-card.people {
+    border-left: 4px solid #3b82f6;
+}
+
+.contact-grid-card.company {
+    border-left: 4px solid #8b5cf6;
+}
+
+/* Grid card style for TradeUnion - standardized nomenclature */
+.contact-grid-card.tradeunion {
+    border-left: 4px solid #ef4444;
+}
+
+.contact-grid-card.organization {
+    border-left: 4px solid #15803d;
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.card-image-container {
+    flex-shrink: 0;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.card-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid var(--background-modifier-border);
+}
+
+.card-image-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    background: var(--background-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border: 2px solid var(--background-modifier-border);
+}
+
+/* Organization logo overlay for menu cards */
+.card-org-logo-overlay {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--background-modifier-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-org-logo-overlay img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-name {
+    margin: 0 0 4px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-normal);
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.card-type {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.card-affiliations {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.card-affiliation {
+    font-size: 0.85em;
+    color: var(--text-accent);
+    font-weight: 500;
+    padding: 2px 6px;
+    background: var(--background-secondary);
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+}
+
+/* Contact links styling */
+.contact-link {
+    color: var(--link-color);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: var(--link-color-hover);
+    text-decoration: underline;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.card-tag {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.7em;
+    font-weight: 500;
+}
+
+.card-tag-more {
+    background: var(--background-secondary);
+    color: var(--text-muted);
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.7em;
+}
+
+.card-summary {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 8px;
+    flex: 1;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.card-quick-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.quick-info-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+.quick-info-icon {
+    font-size: 0.9em;
+    width: 16px;
+    text-align: center;
+}
+
+.quick-info-text {
+    truncate: true;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Empty State */
+.contacts-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 4em;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.contacts-empty-state h3 {
+    margin: 0 0 8px 0;
+    color: var(--text-normal);
+}
+
+.contacts-empty-state p {
+    margin: 0;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+/* Medium screen improvements (Mac/iPad) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .contacts-tabs {
+        padding: 0 16px;
+    }
+
+    .contacts-tab {
+        padding: 11px 14px;
+        font-size: 0.85em;
+    }
+
+    .tab-count {
+        font-size: 0.75em;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contacts-header {
+        padding: 16px;
+    }
+
+    .contacts-search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .contacts-tabs {
+        padding: 0 12px;
+        /* overflow-x is already set in the main rule */
+    }
+
+    .contacts-tab {
+        padding: 10px 12px;
+        font-size: 0.85em;
+        flex-shrink: 0; /* Prevent tabs from shrinking too much */
+        min-width: fit-content;
+    }
+
+    .contacts-grid {
+        padding: 16px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card-layout {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .card-left-section {
+        flex: 0 0 120px;
+    }
+
+    .card-right-section {
+        padding: 16px;
+    }
+}
+
+/* Sort dropdown for People contacts */
+.contacts-sort-dropdown {
+    position: relative;
+    margin-right: 8px;
+}
+
+.contacts-sort-dropdown-button {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.contacts-sort-dropdown-button:hover {
+    background: var(--background-modifier-hover);
+}
+
+.contacts-sort-dropdown-button:after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 4px;
+    opacity: 0.6;
+}
+
+.contacts-sort-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    min-width: 160px;
+    overflow: hidden;
+}
+
+.contacts-sort-dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.15s ease;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.contacts-sort-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.contacts-sort-dropdown-item:hover {
+    background: var(--background-modifier-hover);
+}
+
+.contacts-sort-dropdown-item.active {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+    .contacts-action-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .contacts-sort-dropdown {
+        margin-right: 0;
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .contacts-sort-dropdown-button {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.85em;
+        padding: 10px 12px;
+        /* Enhanced touch target for iOS */
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    .contacts-sort-dropdown-menu {
+        left: 0;
+        right: 0;
+        width: auto;
+        /* Better positioning for mobile */
+    }
+
+    .contacts-sort-dropdown-item {
+        padding: 12px 16px;
+        font-size: 0.9em;
+        /* Larger touch targets for iOS */
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        touch-action: manipulation;
+    }
+
+    .contacts-refresh-button,
+    .contacts-add-button {
+        flex: 1;
+        min-width: 100px;
+        min-height: 44px; /* iOS recommended touch target */
+        touch-action: manipulation;
+    }
+
+    .contacts-search-clear {
+        width: 32px;
+        height: 32px;
+        right: 6px;
+        font-size: 20px;
+        /* Enhanced touch target for iOS */
+        min-height: 32px;
+        touch-action: manipulation;
+    }
+
+    .contacts-search-input {
+        padding-right: 44px; /* More space for larger clear button on mobile */
+    }
+}
+
+/* Management, Trade Union, and Members list styles */
+.card-management-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.card-management-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-management-link {
+    color: var(--text-normal);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.card-management-link:hover {
+    background: var(--background-modifier-hover);
+    transform: translateX(2px);
+}
+
+/* Specific colors for different link types */
+.card-management-link:hover {
+    border-left: 2px solid #3b82f6; /* Blue for management */
+}
+
+.card-website-link,
+.card-project-link {
+    color: var(--text-accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card-website-link:hover,
+.card-project-link:hover {
+    text-decoration: underline;
+}
+
+/* Settings sub-configuration styling */
+.contact-manager-subconfiguration {
+    margin-left: 20px !important;
+    border-left: 2px solid var(--background-modifier-border);
+    padding-left: 15px !important;
+    background: var(--background-secondary);
+}
+
+.card-trade-union-link:hover {
+    border-left: 2px solid #ef4444 !important; /* Red for trade union */
+}
+
+.card-members-link:hover {
+    border-left: 2px solid #15803d !important; /* Green for organization members */
+}

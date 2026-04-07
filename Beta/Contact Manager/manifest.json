@@ -1,0 +1,10 @@
+{
+	"id": "contact-manager",
+	"name": "ContactManager",
+	"version": "1.0.5",
+	"minAppVersion": "0.15.0",
+	"description": "Comprehensive contact management system with People, Companies, Unions, and Organizations",
+	"author": "Daniel",
+	"authorUrl": "",
+	"isDesktopOnly": false
+}
