@@ -1,0 +1,10 @@
+{
+	"id": "milestone-timeline",
+	"name": "Milestone Timeline",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.6",
+	"description": "Visual timeline of milestones extracted from your notes.",
+	"author": "Brandon Lavigne, Claude, & Co-Pilot Agent",
+	"authorUrl": "",
+	"isDesktopOnly": false
+}

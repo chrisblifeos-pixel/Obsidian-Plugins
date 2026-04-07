@@ -1,0 +1,551 @@
+/* Milestone Timeline Styles */
+
+.milestone-timeline-container {
+    padding: 0;
+    padding-top: 70px; /* Space for the fixed header */
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.milestone-timeline-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: var(--background-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 2px solid var(--background-modifier-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.milestone-timeline-content {
+    padding: 0 20px 20px 20px;
+}
+
+.milestone-timeline-header h4 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.milestone-header-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.milestone-search-container {
+    display: flex;
+    align-items: center;
+}
+
+.milestone-search-input {
+    padding: 6px 12px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background-color: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 0.9em;
+    width: 200px;
+    transition: all 0.2s ease;
+}
+
+.milestone-search-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px var(--interactive-accent-hover);
+}
+
+.milestone-search-input::placeholder {
+    color: var(--text-faint);
+}
+
+.milestone-search-results {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    padding: 8px 0;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.milestone-help-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background-color: var(--background-modifier-border);
+    color: var(--text-normal);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.milestone-help-btn:hover {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    transform: scale(1.1);
+}
+
+.milestone-refresh-btn {
+    padding: 5px 15px;
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.milestone-refresh-btn:hover {
+    background-color: var(--interactive-accent-hover);
+}
+
+.milestone-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Timeline Structure */
+.milestone-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+/* Vertical line */
+.milestone-timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--interactive-accent) 5%,
+        var(--interactive-accent) 95%,
+        transparent 100%
+    );
+}
+
+/* Year Marker */
+.milestone-year-marker {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.milestone-year-marker-dot {
+    position: absolute;
+    left: -29px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--interactive-accent);
+    z-index: 10;
+}
+
+.milestone-year-marker-dot svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.milestone-year-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.milestone-year-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--interactive-accent),
+        transparent
+    );
+    opacity: 0.5;
+}
+
+.milestone-year-label {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--interactive-accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 8px 20px;
+    background: var(--background-primary);
+    border: 2px solid var(--interactive-accent);
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Month Marker */
+.milestone-month-marker {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 25px 0 20px 0;
+    gap: 12px;
+}
+
+.milestone-month-marker-dot {
+    position: absolute;
+    left: -26px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--interactive-accent);
+    opacity: 0.9;
+    z-index: 9;
+}
+
+.milestone-month-marker-dot svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+.milestone-month-label {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: var(--text-normal);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 8px 16px;
+    background: var(--background-secondary);
+    border: 2px solid var(--interactive-accent);
+    border-left-width: 4px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.milestone-month-label:hover {
+    background: var(--background-secondary-alt);
+    transform: translateX(2px);
+}
+
+.milestone-item {
+    position: relative;
+    display: flex;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.milestone-marker {
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.milestone-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--interactive-accent);
+    border: 3px solid var(--background-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--interactive-accent);
+    transition: all 0.2s ease;
+}
+
+.milestone-item:hover .milestone-dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--interactive-accent-hover);
+    box-shadow: 0 0 0 3px var(--interactive-accent-hover);
+}
+
+.milestone-content {
+    flex: 1;
+    background-color: var(--background-secondary);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 3px solid var(--interactive-accent);
+    transition: all 0.2s ease;
+}
+
+.milestone-content:hover {
+    background-color: var(--background-secondary-alt);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(2px);
+}
+
+.milestone-date {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.milestone-date-partial {
+    color: var(--text-warning);
+    font-style: italic;
+}
+
+.milestone-tag-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--interactive-accent);
+    opacity: 0.8;
+    cursor: help;
+}
+
+.milestone-tag-indicator svg {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+
+.milestone-tag-indicator:hover {
+    opacity: 1;
+}
+
+.milestone-uncertain-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-warning);
+    opacity: 0.8;
+    cursor: help;
+    margin-left: 2px;
+}
+
+.milestone-uncertain-indicator:hover {
+    opacity: 1;
+}
+
+.milestone-title {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--text-normal);
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.milestone-title:hover {
+    color: var(--interactive-accent);
+}
+
+.milestone-heading {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text-accent);
+    margin-bottom: 6px;
+    margin-top: 2px;
+}
+
+.milestone-context {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: 4px;
+}
+
+/* Dark mode adjustments */
+.theme-dark .milestone-content {
+    background-color: var(--background-primary-alt);
+}
+
+.theme-dark .milestone-content:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .milestone-timeline-container {
+        padding: 15px;
+    }
+
+    .milestone-timeline {
+        padding-left: 25px;
+    }
+
+    .milestone-marker {
+        left: -25px;
+    }
+
+    .milestone-content {
+        padding: 10px 12px;
+    }
+}
+
+/* Help Modal Styles */
+.milestone-help-modal {
+    padding: 20px;
+}
+
+.milestone-help-modal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--interactive-accent);
+}
+
+.milestone-help-modal h3 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: var(--text-normal);
+    font-size: 1.1em;
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 6px;
+}
+
+.milestone-help-modal ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.milestone-help-modal li {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.milestone-help-modal pre {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+.milestone-help-modal code {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+}
+
+.milestone-help-modal pre code {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.milestone-help-modal button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.milestone-help-modal button:hover {
+    background-color: var(--interactive-accent-hover);
+}
+
+/* Potential Years Modal */
+.milestone-years-modal .potential-years-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.milestone-years-modal .potential-years-header h2 {
+    margin: 0;
+}
+
+.milestone-years-modal .potential-years-progress {
+    color: var(--text-muted);
+}
+
+.milestone-years-modal .potential-years-year-display {
+    padding: 1.5em;
+    background: var(--background-secondary);
+    border-radius: 8px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.milestone-years-modal .potential-years-year-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--text-accent);
+}
+
+.milestone-years-modal .potential-years-file-info {
+    margin-bottom: 1em;
+}
+
+.milestone-years-modal .potential-years-file-link {
+    font-weight: bold;
+}
+
+.milestone-years-modal .potential-years-context {
+    padding: 1em;
+    background: var(--background-primary-alt);
+    border-radius: 5px;
+    margin-bottom: 1.5em;
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+}
+
+.milestone-years-modal .potential-years-context mark {
+    background: var(--text-highlight-bg);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.milestone-years-modal .potential-years-instructions {
+    margin-bottom: 1em;
+}
+
+.milestone-years-modal .potential-years-actions {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.milestone-years-modal .potential-years-actions button {
+    flex: 1;
+    padding: 0.75em;
+}
+
+.milestone-years-modal .potential-years-navigation {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.milestone-years-modal .potential-years-navigation button:last-child {
+    margin-left: auto;
+}
