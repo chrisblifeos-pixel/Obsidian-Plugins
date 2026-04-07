@@ -1,0 +1,389 @@
+/* -------------------------------------------------------------------------- */
+/*                                Settings Tab                                */
+/* -------------------------------------------------------------------------- */
+
+.cbx-setting-default-configuration {
+    width: 250px;
+    height: 150px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Error Rendering Styles                           */
+/* -------------------------------------------------------------------------- */
+
+.chatterbox > .error-container {
+    display: block;
+    width: 100%;
+    padding: var(--size-4-1) var(--size-4-2);
+    background-color: rgba(var(--callout-error), 0.1);
+    border-radius: var(--callout-radius);
+    word-break: break-word;
+
+    > .error-title {
+        display: block;
+        font-size: max(var(--font-ui-small), 1em);
+        font-weight: var(--font-medium);
+        color: var(--text-error);
+    }
+
+    > ul.error-items {
+        display: block;
+        color: var(--text-error);
+    }
+
+    > ul.error-items > li::marker {
+        display: list-item;
+        color: color-mix(in srgb, var(--text-error) 60%, transparent);
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Base Styles                                */
+/* -------------------------------------------------------------------------- */
+
+.chatterbox {
+    /* Capsule */
+    --capsule-bg-color: transparent;
+    --capsule-border: 1px solid;
+    --capsule-border-radius: 1.5em;
+    --capsule-container-margin: 1.5em 0;
+    --capsule-padding: 0.5em 1.5em;
+    --capsule-max-width: 80%;
+
+    /* Comment */
+    --comment-text-color: color-mix(
+        in srgb,
+        var(--text-muted) 50%,
+        var(--text-faint)
+    );
+    --comment-container-margin: 1.5em 0;
+    --comment-max-width: 80%;
+
+    /* Delimiter */
+    --delimiter-margin-amount: 3em;
+    --delimiter-margin: var(--delimiter-margin-amount) 0
+        var(--delimiter-margin-amount) 0;
+    --delimiter-dot-color: var(--text-muted);
+    --delimiter-dot-gap: 0.3em;
+    --delimiter-dot-size: 0.5em;
+
+    /* Message */
+    --message-margin: 1.5em 0 1.5em 0;
+    --message-bg-color: transparent;
+    --message-author-color: var(--text-normal);
+    --message-author-font-size: 1em;
+    --message-text-font-size: 1em;
+    --message-text-color: var(--text-normal);
+    --message-subtext-font-size: 0.9em;
+    --message-subtext-color: var(--text-muted);
+    --message-min-width: 3em;
+    --message-max-width: 80%;
+}
+
+.chatterbox {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+
+    > .chatterbox-content {
+        width: 100%;
+
+        > .entry-container {
+            word-break: break-word;
+        }
+    }
+}
+
+/* ------------------------------- Auto Colors ------------------------------ */
+
+.chatterbox {
+    --auto-color-1: #c66300;
+    --auto-color-2: #1a72d4;
+    --auto-color-3: #e91d36;
+    --auto-color-4: #755dbf;
+    --auto-color-5: #108e42;
+    --auto-color-6: #cc2073;
+    --auto-color-7: #958509;
+    --auto-color-8: #05918f;
+}
+
+.theme-dark .chatterbox {
+    --auto-color-1: #ffb463;
+    --auto-color-2: #7cc5ff;
+    --auto-color-3: #ff8484;
+    --auto-color-4: #b99aff;
+    --auto-color-5: #7ce49b;
+    --auto-color-6: #fa99cd;
+    --auto-color-7: #e6d164;
+    --auto-color-8: #64d2d0;
+}
+
+/* --------------------------------- Capsule -------------------------------- */
+
+.chatterbox > .chatterbox-content > .entry-container.capsule-container {
+    display: block;
+    width: 100%;
+    margin: var(--capsule-container-margin);
+
+    > .capsule {
+        display: block;
+        width: fit-content;
+        max-width: var(--capsule-max-width);
+        margin-right: auto;
+        margin-left: auto;
+        padding: var(--capsule-padding);
+        background-color: var(--capsule-bg-color);
+        border: var(--capsule-border);
+        border-radius: var(--capsule-border-radius);
+        text-align: center;
+    }
+}
+
+/* --------------------------------- Comment -------------------------------- */
+
+.chatterbox > .chatterbox-content > .entry-container.comment-container {
+    display: block;
+    width: 100%;
+    margin: var(--comment-container-margin);
+
+    > .comment {
+        display: block;
+        width: fit-content;
+        max-width: var(--comment-max-width);
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        color: var(--comment-text-color);
+    }
+}
+
+/* -------------------------------- Delimiter ------------------------------- */
+
+.chatterbox > .chatterbox-content > .entry-container.delimiter-container {
+    display: block;
+    width: 100%;
+    height: fit-content;
+    margin: var(--delimiter-margin);
+
+    > .delimiter {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        margin-right: auto;
+        margin-left: auto;
+
+        > .dot {
+            display: inline-block;
+            width: var(--delimiter-dot-size);
+            height: var(--delimiter-dot-size);
+            margin: 0px var(--delimiter-dot-gap);
+            background-color: var(--delimiter-dot-color);
+            border-radius: 60%;
+        }
+    }
+}
+
+/* ----------------------------- Markdown Block ----------------------------- */
+
+.chatterbox > .chatterbox-content > .entry-container.markdown-container {
+    display: block;
+    width: 100%;
+
+    > .markdown {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* --------------------------------- Message -------------------------------- */
+
+.chatterbox > .chatterbox-content > .entry-container.message-container {
+    display: block;
+    width: 100%;
+    margin: var(--message-margin);
+
+    > .message {
+        display: block;
+        width: 100%;
+        min-width: var(--message-min-width);
+        max-width: var(--message-max-width);
+        padding: 0;
+        border-radius: 0;
+        background-color: var(--message-bg-color);
+
+        > .message-header,
+        > .message-body,
+        > .message-footer {
+            display: block;
+        }
+
+        .message-author {
+            display: inline-block;
+            font-size: var(--message-author-font-size);
+            font-weight: bold;
+            color: var(--message-author-color);
+        }
+
+        .message-content {
+            display: block;
+            width: 100%;
+            font-size: var(--message-text-font-size);
+            color: var(--message-text-color);
+
+            .md-fix-first {
+                margin-top: 0;
+            }
+
+            .md-fix-last {
+                margin-bottom: 0;
+            }
+        }
+
+        .message-subtext {
+            display: inline-block;
+            font-size: var(--message-subtext-font-size);
+            color: var(--message-subtext-color);
+        }
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Simple Rendering Styles                          */
+/* -------------------------------------------------------------------------- */
+
+.chatterbox.mode-simple {
+    --message-indent: 1em;
+    --message-author-margin: 0.75em;
+    --message-margin: 0.5em 0;
+    --message-padding: 0.25em 0.5em;
+
+    /* ------------------------------- Message ------------------------------ */
+
+    > .chatterbox-content > .entry-container.message-container > .message {
+        max-width: 100%;
+        padding: var(--message-padding);
+
+        > .message-body {
+            margin: 0 0 0 var(--message-indent);
+        }
+
+        .message-author {
+            margin-inline-end: var(--message-author-margin);
+        }
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Bubble Rendering Styles                          */
+/* -------------------------------------------------------------------------- */
+
+.chatterbox.mode-bubble {
+    --capsule-bg-color: #eaeaeacc;
+    --capsule-border: 0;
+
+    --message-bg-color: #ebebeb;
+
+    --bubble-content-margin: 0.25em;
+    --bubble-padding: 1em;
+    --bubble-stem-height: 25px;
+    --bubble-stem-width: 10px;
+    --bubble-border-radius: 15px;
+}
+
+.theme-dark .chatterbox.mode-bubble {
+    --capsule-bg-color: #2c2c2ccc;
+    --message-bg-color: #363636cc;
+}
+
+/* --------------------------------- Message -------------------------------- */
+
+.chatterbox.mode-bubble
+    > .chatterbox-content
+    > .entry-container.message-container {
+    display: flex;
+    margin: 1.5em 0;
+
+    > .message {
+        position: relative;
+        box-sizing: border-box;
+        width: fit-content;
+        padding: var(--bubble-padding);
+        background-color: var(--message-bg-color);
+        border-radius: var(--bubble-border-radius);
+
+        > .message-header {
+            margin-top: calc(-1 * var(--bubble-padding) / 2);
+            margin-bottom: var(--bubble-content-margin);
+        }
+
+        > .message-footer {
+            display: flex;
+            justify-content: end;
+            margin-top: var(--bubble-content-margin);
+            margin-bottom: calc(-1 * var(--bubble-padding) / 2);
+        }
+    }
+}
+
+.chatterbox.mode-bubble
+    > .chatterbox-content
+    > .entry-container.message-container.message-right {
+    justify-content: end;
+    padding-right: var(--bubble-stem-width);
+
+    > .message {
+        min-height: calc(
+            var(--bubble-stem-height) + var(--bubble-border-radius)
+        );
+        border-top-right-radius: 0;
+    }
+
+    /* Right message bubble stem */
+    > .message::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: calc(-1 * var(--bubble-stem-width));
+        width: var(--bubble-stem-width);
+        height: var(--bubble-stem-height);
+        background: radial-gradient(
+            ellipse var(--bubble-stem-width) var(--bubble-stem-height) at bottom
+                right,
+            transparent 99%,
+            var(--message-bg-color) 102%
+        );
+    }
+}
+
+.chatterbox.mode-bubble
+    > .chatterbox-content
+    > .entry-container.message-container.message-center {
+    justify-content: center;
+}
+
+.chatterbox.mode-bubble
+    > .chatterbox-content
+    > .entry-container.message-container.message-left {
+    justify-content: start;
+    padding-left: var(--bubble-stem-width);
+
+    > .message {
+        border-top-left-radius: 0;
+    }
+
+    /* Left message bubble stem */
+    > .message::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc(-1 * var(--bubble-stem-width));
+        width: var(--bubble-stem-width);
+        height: var(--bubble-stem-height);
+        background: radial-gradient(
+            ellipse var(--bubble-stem-width) var(--bubble-stem-height) at bottom
+                left,
+            transparent 99%,
+            var(--message-bg-color) 102%
+        );
+    }
+}
