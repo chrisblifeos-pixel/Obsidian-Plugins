@@ -1,0 +1,10 @@
+{
+  "id": "cigarette-log",
+  "name": "Cigarette Log",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Track and visualize cigarette consumption data with charts, statistics, and full entry management.",
+  "author": "Custom Plugin",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
