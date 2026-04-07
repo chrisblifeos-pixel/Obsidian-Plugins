@@ -1,0 +1,19 @@
+{
+  "eventFolder": "Events",
+  "weekStartDay": 0,
+  "frontmatterFields": {
+    "tags": true,
+    "date": true,
+    "startTime": true,
+    "endTime": true,
+    "done": true
+  },
+  "fieldOrder": [
+    "tags",
+    "date",
+    "startTime",
+    "endTime",
+    "done"
+  ],
+  "events": []
+}

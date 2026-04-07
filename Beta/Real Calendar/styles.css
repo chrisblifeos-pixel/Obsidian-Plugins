@@ -1,0 +1,319 @@
+/* Real Calendar Plugin Styles */
+
+.real-calendar { 
+  padding: 10px; 
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.real-calendar-calendar-controls { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 15px; 
+  gap: 10px; 
+  flex-wrap: wrap;
+}
+
+.real-calendar-calendar-header { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.real-calendar-calendar-header button { 
+  padding: 5px 10px; 
+  cursor: pointer; 
+}
+
+.real-calendar-calendar-header span { 
+  font-weight: bold; 
+  font-size: 1.1em; 
+}
+
+.real-calendar-view-toggle { 
+  display: flex; 
+  gap: 5px; 
+}
+
+.real-calendar-view-toggle button { 
+  padding: 5px 10px; 
+  cursor: pointer; 
+}
+
+.real-calendar-view-toggle button.active { 
+  background: var(--interactive-accent); 
+  color: var(--text-on-accent); 
+}
+
+.real-calendar-calendar-weekdays { 
+  display: grid; 
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 5px; 
+  margin-bottom: 5px; 
+}
+
+.real-calendar-calendar-weekday { 
+  text-align: center; 
+  font-weight: bold; 
+  padding: 5px; 
+  font-size: 0.9em; 
+}
+
+/* === UNIFORM GRID FIX === */
+.real-calendar-calendar-grid { 
+  display: grid; 
+  grid-template-columns: repeat(7, 1fr); 
+  grid-template-rows: repeat(6, 1fr); /* always 6 weeks visible */
+  gap: 5px; 
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 220px); /* adjust as needed */
+  box-sizing: border-box;
+}
+
+.real-calendar-calendar-day { 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid var(--background-modifier-border); 
+  border-radius: 4px; 
+  background: var(--background-primary); 
+  padding: 5px; 
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+.real-calendar-calendar-day.real-calendar-empty { 
+  background: var(--background-secondary); 
+  border: none; 
+}
+
+.real-calendar-calendar-day.real-calendar-today { 
+  border: 2px solid var(--interactive-accent); 
+}
+
+.real-calendar-calendar-day-number { 
+  font-weight: bold; 
+  margin-bottom: 5px; 
+  font-size: 0.9em; 
+  color: var(--text-muted); 
+}
+
+.real-calendar-calendar-event { 
+  font-size: 0.8em; 
+  padding: 2px 4px; 
+  margin: 2px 0; 
+  border-radius: 3px; 
+  cursor: pointer; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+}
+
+.real-calendar-calendar-event:hover { 
+  opacity: 0.8; 
+}
+
+.real-calendar-event-upcoming { 
+  background: var(--interactive-accent); 
+  color: var(--text-on-accent); 
+}
+
+.real-calendar-event-done { 
+  background: var(--background-modifier-success); 
+  text-decoration: line-through; 
+  opacity: 0.7; 
+}
+
+.real-calendar-event-overdue { 
+  background: var(--background-modifier-error); 
+  color: var(--text-on-accent); 
+}
+
+/* === WEEK VIEW === */
+.real-calendar-week-view { 
+  display: grid; 
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 10px; 
+  flex: 1;
+}
+
+.real-calendar-week-day { 
+  border: 1px solid var(--background-modifier-border); 
+  padding: 10px; 
+  border-radius: 4px; 
+  background: var(--background-primary); 
+  min-height: 200px; 
+}
+
+.real-calendar-week-day.real-calendar-today { 
+  border: 2px solid var(--interactive-accent); 
+}
+
+.real-calendar-week-day-header { 
+  font-weight: bold; 
+  margin-bottom: 8px; 
+  font-size: 0.9em; 
+  text-align: center; 
+}
+
+.real-calendar-week-day-events { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 5px; 
+}
+
+/* Week view - Empty event styling */
+.real-calendar-week-day-events .real-calendar-empty-event {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* === DAY VIEW === */
+.real-calendar-day-view { 
+  max-width: 600px; 
+  margin: 0 auto; 
+  flex: 1;
+}
+
+.real-calendar-day-view-header { 
+  text-align: center; 
+  font-weight: bold; 
+  font-size: 1.2em; 
+  margin-bottom: 20px; 
+}
+
+.real-calendar-day-event-list { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+}
+
+.real-calendar-day-event-item { 
+  border: 1px solid var(--background-modifier-border); 
+  padding: 15px; 
+  border-radius: 4px; 
+  background: var(--background-primary); 
+  cursor: pointer; 
+}
+
+.real-calendar-day-event-item:hover { 
+  background: var(--background-secondary); 
+}
+
+.real-calendar-day-event-title { 
+  font-weight: bold; 
+  font-size: 1em; 
+  margin-bottom: 5px; 
+}
+
+.real-calendar-day-event-time { 
+  font-size: 0.9em; 
+  color: var(--text-muted); 
+  margin-bottom: 5px; 
+}
+
+.real-calendar-day-event-status { 
+  font-size: 0.9em; 
+  padding: 3px 8px; 
+  border-radius: 3px; 
+  display: inline-block; 
+}
+
+.real-calendar-day-no-events { 
+  text-align: center; 
+  color: var(--text-muted); 
+  padding: 40px; 
+  font-size: 1.1em; 
+}
+
+/* === LOADING STATE === */
+.real-calendar-loading {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* === MODAL STYLES === */
+.real-calendar-modal-button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* === SETTINGS STYLES === */
+/* Field order section */
+.real-calendar-field-order {
+  margin-bottom: 20px;
+}
+
+.real-calendar-field-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+  cursor: move;
+}
+
+.real-calendar-field-item.real-calendar-dragging {
+  opacity: 0.5;
+}
+
+.real-calendar-field-item .real-calendar-drag-handle {
+  cursor: grab;
+  color: var(--text-muted);
+}
+
+.real-calendar-field-item .real-calendar-field-name {
+  flex: 1;
+}
+
+.real-calendar-field-item .real-calendar-field-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.real-calendar-field-item .real-calendar-field-move-button {
+  padding: 2px 8px;
+}
+
+/* Example code block */
+.real-calendar-example {
+  background-color: var(--background-secondary);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+
+
+
+/* === RESPONSIVE === */
+@media (max-width: 800px) {
+  .real-calendar-calendar-grid {
+    height: calc(100vh - 180px);
+  }
+
+  .real-calendar-calendar-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .real-calendar-calendar-header {
+    justify-content: space-between;
+  }
+}
+
+@media (max-height: 700px) {
+  .real-calendar-calendar-grid {
+    height: 400px;
+  }
+}
