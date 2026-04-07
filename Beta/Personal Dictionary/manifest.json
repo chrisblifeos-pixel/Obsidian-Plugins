@@ -1,0 +1,10 @@
+{
+  "id": "personal-dictionary",
+  "name": "Personal Dictionary",
+  "version": "1.0.2",
+  "minAppVersion": "1.0.0",
+  "description": "Create a personal dictionary of definitions for anything from keeping track of academic concepts to everyday use.",
+  "author": "Quentin Cochran",
+  "authorUrl": "https://github.com/qcochran",
+  "isDesktopOnly": false
+}
