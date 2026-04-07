@@ -1,0 +1,11 @@
+{
+  "id": "etch-weather",
+  "name": "Etch - Weather",
+  "version": "1.0.0",
+  "minAppVersion": "1.11.0",
+  "description": "Etches weather forecasts into your local notes.",
+  "author": "Peter Parente",
+  "authorUrl": "https://github.com/parente",
+  "fundingUrl": "https://buymeacoffee.com/parente",
+  "isDesktopOnly": false
+}
