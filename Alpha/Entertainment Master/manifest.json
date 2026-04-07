@@ -1,0 +1,10 @@
+{
+  "id": "entertainment-master",
+  "name": "Entertainment Master",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Track your TV Series, Movies, and Books library with watchlogs and reading logs.",
+  "author": "Entertainment Master",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
