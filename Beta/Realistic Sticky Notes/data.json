@@ -1,0 +1,16 @@
+{
+  "basePath": "BrainCore",
+  "hasShownWelcome": true,
+  "boards": {
+    "BrainCore/default": {
+      "wallStyle": "plain",
+      "zoom": 1
+    },
+    "BrainCore/sound": {
+      "wallStyle": "dots",
+      "isFullWidth": false,
+      "zoom": 1
+    }
+  },
+  "migratedFiles": []
+}
