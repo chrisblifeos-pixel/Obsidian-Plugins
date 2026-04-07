@@ -1,0 +1,9 @@
+{
+  "id": "ascii-canvas",
+  "name": "ASCII Canvas",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "ASCII-only canvas drawing, like Excalidraw but with characters.",
+  "author": "Huseyin Akbas",
+  "isDesktopOnly": false
+}
