@@ -1,0 +1,18 @@
+/* Better File Properties View Styles */
+
+body.hide-metadata-container {
+    --metadata-display-editing: none;
+}
+
+.better-file-properties-image-container {
+	padding: 0.5rem;
+	background-color: var(--background-secondary);
+}
+
+.better-file-properties-image {
+	height: auto;
+    margin: 0 auto;
+    display: block;
+	resize: both;
+	overflow: auto;
+}
