@@ -1,0 +1,76 @@
+
+.pill-theme-light {
+  --pill-tabs-bg: var(--background-secondary);
+  --pill-tabs-border: var(--background-modifier-border);
+  --pill-tabs-hover-bg: var(--background-modifier-hover);
+
+  --pill-tabs-text: var(--text-normal);
+  --pill-tabs-active-text: var(--text-on-accent);
+
+  --pill-tabs-accent: var(--interactive-accent);
+
+  --pill-tabs-shadow: 0 0 0 1px var(--interactive-accent),
+                      0 2px 6px rgba(0, 0, 0, 0.35);
+}
+.pill-theme-dark {
+  --pill-tabs-bg: var(--background-secondary);
+  --pill-tabs-border: var(--background-modifier-border);
+  --pill-tabs-hover-bg: var(--background-modifier-hover);
+
+  --pill-tabs-text: var(--text-normal);
+  --pill-tabs-active-text: var(--text-on-accent);
+
+  --pill-tabs-accent: var(--interactive-accent);
+
+  --pill-tabs-shadow: 0 0 0 1px var(--interactive-accent),
+                      0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   STANDARD TABS CONTAINER (structure & behavior only)
+   ========================================== */
+
+.pill-tabs-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.pill-tabs-container > button {
+  width: auto !important;
+  flex: 0 0 auto;
+  justify-content: center;
+  appearance: none;
+
+  padding: 4px 12px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: nowrap;
+
+  transition:
+    background 120ms ease,
+    box-shadow 120ms ease,
+    transform 120ms ease,
+    border-color 120ms ease;
+}
+
+.pill-tabs-container > button:hover {
+  transform: translateY(-1px);
+}
+
+.pill-tabs-container > button.is-active {
+  
+background: var(--interactive-accent); 
+color: var(--text-on-accent);
+ border-color: var(--interactive-accent);
+}
+
+body.pill-hide-bases-menu .menu.bases-toolbar-views-menu {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

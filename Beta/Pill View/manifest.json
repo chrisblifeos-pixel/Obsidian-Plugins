@@ -1,0 +1,11 @@
+{
+  "id": "pill-view",
+  "name": "pill-view",
+  "version": "1.0.0",
+  "minAppVersion": "1.9.0",
+  "description": "displays your bases view names as a tablist of buttons.",
+  "author": "nilarkian",
+  "authorUrl": "https://github.com/nilarkian",
+	"fundingUrl": "https://www.buymeacoffee.com/nilarkian",
+  "isDesktopOnly": false
+}
