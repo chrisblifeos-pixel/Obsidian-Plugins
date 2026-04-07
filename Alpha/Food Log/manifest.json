@@ -1,0 +1,10 @@
+{
+  "id": "food-log",
+  "name": "Food Log",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Track and visualize meal data with charts, statistics, and full entry management. Supports meal types, prepared-by, main dish, side dishes, star ratings, and GPS location.",
+  "author": "Custom Plugin",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
