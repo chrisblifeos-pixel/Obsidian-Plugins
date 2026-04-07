@@ -1,0 +1,14 @@
+{
+	"id": "dayspark",
+	"name": "DaySpark",
+	"version": "1.2.2",
+	"minAppVersion": "0.15.0",
+	"description": "A digital almanac for daily notes. Injects ICS calendars, sun/moon phases, celestial conjunctions, meteor showers, weather, and historical context.",
+	"author": "Stephanie Frantz",
+	"authorUrl": "https://github.com/thehandsomezebra",
+	"fundingUrl": {
+		"Ko-Fi": "https://ko-fi.com/handsomezebra",
+		"Buy Me a Coffee": "https://buymeacoffee.com/handsomezebra"
+	},
+	"isDesktopOnly": false
+}

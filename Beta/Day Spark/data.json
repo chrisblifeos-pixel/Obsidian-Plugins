@@ -1,0 +1,42 @@
+{
+  "calendarGroups": [
+    {
+      "id": "default",
+      "name": "Main Calendar",
+      "enabled": true,
+      "header": "## Agenda",
+      "urls": [],
+      "showDescription": true
+    }
+  ],
+  "enableMoon": true,
+  "enableMoonTimes": true,
+  "enableMoonAge": true,
+  "enableMoonPosition": true,
+  "moonHeader": "## Moon Phase",
+  "enableSun": true,
+  "sunHeader": "## Daily Context",
+  "latitude": 43.3344172,
+  "longitude": -72.4614934,
+  "use24HourFormat": false,
+  "enableAlmanac": true,
+  "almanacHeader": "## Almanac Lore",
+  "enablePlanets": true,
+  "planetHeader": "## Sky Watch",
+  "enableSeasons": true,
+  "seasonsHeader": "## Seasons",
+  "enableMeteorologicalSeasons": false,
+  "enableCrossQuarterDays": true,
+  "enableWeather": true,
+  "weatherHeader": "## Weather",
+  "useMetric": false,
+  "enableHistory": true,
+  "historyHeader": "## On This Day",
+  "historyLimit": 5,
+  "replaceContext": true,
+  "enableCelestialEvents": true,
+  "celestialHeader": "## Celestial Events",
+  "enableBasicEvents": false,
+  "enableMeteorShowers": true,
+  "enableAdvancedAstronomy": false
+}
