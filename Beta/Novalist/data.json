@@ -1,0 +1,471 @@
+{
+  "novalistRoot": "Novalist",
+  "projectPath": "Story Builder",
+  "projects": [
+    {
+      "id": "project-default",
+      "name": "NovelProject",
+      "path": "NovelProject"
+    },
+    {
+      "id": "project-1775578743330",
+      "name": "Story Builder",
+      "path": "Story Builder"
+    }
+  ],
+  "activeProjectId": "project-1775578743330",
+  "worldBiblePath": "WorldBible",
+  "autoReplacements": [
+    {
+      "start": "'",
+      "end": "'",
+      "startReplace": "„",
+      "endReplace": "“"
+    },
+    {
+      "start": "--",
+      "end": "--",
+      "startReplace": "—",
+      "endReplace": "—"
+    },
+    {
+      "start": "...",
+      "end": "...",
+      "startReplace": "…",
+      "endReplace": "…"
+    }
+  ],
+  "language": "de-low",
+  "customLanguageLabel": "Custom",
+  "customLanguageDefaults": [],
+  "enableSidebarView": true,
+  "enableCustomExplorer": true,
+  "characterFolder": "Characters",
+  "locationFolder": "Locations",
+  "itemFolder": "Items",
+  "loreFolder": "Lore",
+  "imageFolder": "Images",
+  "chapterFolder": "Chapters",
+  "relationshipPairs": {},
+  "startupWizardShown": false,
+  "roleColors": {},
+  "genderColors": {},
+  "explorerGroupCollapsed": {},
+  "wordCountGoals": {
+    "dailyGoal": 1000,
+    "projectGoal": 50000,
+    "dailyHistory": [
+      {
+        "date": "2026-04-07",
+        "targetWords": 1000,
+        "actualWords": 11
+      }
+    ],
+    "dailyBaselineWords": 0,
+    "dailyBaselineDate": "2026-04-07"
+  },
+  "enableBookParagraphSpacing": false,
+  "enableToolbar": true,
+  "enableExplorerAutoReveal": true,
+  "enableAnnotations": true,
+  "commentThreads": [],
+  "plotBoard": {
+    "columns": [],
+    "cells": {},
+    "labels": [],
+    "cardColors": {},
+    "cardLabels": {},
+    "viewMode": "board",
+    "collapsedActs": []
+  },
+  "timeline": {
+    "manualEvents": [],
+    "categories": [
+      {
+        "id": "plot",
+        "name": "Plot Point",
+        "color": "#e74c3c"
+      },
+      {
+        "id": "character",
+        "name": "Character Event",
+        "color": "#3498db"
+      },
+      {
+        "id": "world",
+        "name": "World Event",
+        "color": "#2ecc71"
+      }
+    ],
+    "viewMode": "vertical",
+    "zoomLevel": "month"
+  },
+  "characterTemplates": [
+    {
+      "id": "default",
+      "name": "Default",
+      "builtIn": true,
+      "fields": [
+        {
+          "key": "Gender",
+          "defaultValue": ""
+        },
+        {
+          "key": "Age",
+          "defaultValue": ""
+        },
+        {
+          "key": "Role",
+          "defaultValue": ""
+        },
+        {
+          "key": "EyeColor",
+          "defaultValue": ""
+        },
+        {
+          "key": "HairColor",
+          "defaultValue": ""
+        },
+        {
+          "key": "HairLength",
+          "defaultValue": ""
+        },
+        {
+          "key": "Height",
+          "defaultValue": ""
+        },
+        {
+          "key": "Build",
+          "defaultValue": ""
+        },
+        {
+          "key": "SkinTone",
+          "defaultValue": ""
+        },
+        {
+          "key": "DistinguishingFeatures",
+          "defaultValue": ""
+        }
+      ],
+      "customPropertyDefs": [],
+      "sections": [],
+      "includeRelationships": true,
+      "includeImages": true,
+      "includeChapterOverrides": true
+    }
+  ],
+  "locationTemplates": [
+    {
+      "id": "default",
+      "name": "Default",
+      "builtIn": true,
+      "fields": [
+        {
+          "key": "Type",
+          "defaultValue": ""
+        },
+        {
+          "key": "Description",
+          "defaultValue": ""
+        }
+      ],
+      "customPropertyDefs": [],
+      "sections": [],
+      "includeImages": true
+    }
+  ],
+  "itemTemplates": [
+    {
+      "id": "default",
+      "name": "Default",
+      "builtIn": true,
+      "fields": [
+        {
+          "key": "Type",
+          "defaultValue": ""
+        },
+        {
+          "key": "Description",
+          "defaultValue": ""
+        },
+        {
+          "key": "Origin",
+          "defaultValue": ""
+        }
+      ],
+      "customPropertyDefs": [],
+      "sections": [],
+      "includeImages": true
+    }
+  ],
+  "loreTemplates": [
+    {
+      "id": "default",
+      "name": "Default",
+      "builtIn": true,
+      "fields": [
+        {
+          "key": "Category",
+          "defaultValue": ""
+        },
+        {
+          "key": "Description",
+          "defaultValue": ""
+        }
+      ],
+      "customPropertyDefs": [],
+      "sections": [],
+      "includeImages": true
+    }
+  ],
+  "activeCharacterTemplateId": "default",
+  "activeLocationTemplateId": "default",
+  "activeItemTemplateId": "default",
+  "activeLoreTemplateId": "default",
+  "projectData": {
+    "project-default": {
+      "commentThreads": [],
+      "plotBoard": {
+        "columns": [],
+        "cells": {},
+        "labels": [],
+        "cardColors": {},
+        "cardLabels": {},
+        "viewMode": "board",
+        "collapsedActs": []
+      },
+      "wordCountGoals": {
+        "dailyGoal": 1000,
+        "projectGoal": 50000,
+        "dailyHistory": []
+      },
+      "explorerGroupCollapsed": {},
+      "relationshipPairs": {},
+      "recentEdits": [],
+      "timeline": {
+        "manualEvents": [],
+        "categories": [
+          {
+            "id": "plot",
+            "name": "Plot Point",
+            "color": "#e74c3c"
+          },
+          {
+            "id": "character",
+            "name": "Character Event",
+            "color": "#3498db"
+          },
+          {
+            "id": "world",
+            "name": "World Event",
+            "color": "#2ecc71"
+          }
+        ],
+        "viewMode": "vertical",
+        "zoomLevel": "month"
+      },
+      "mentionCache": {}
+    },
+    "project-1775578743330": {
+      "commentThreads": [],
+      "plotBoard": {
+        "columns": [],
+        "cells": {},
+        "labels": [],
+        "cardColors": {},
+        "cardLabels": {},
+        "viewMode": "board",
+        "collapsedActs": []
+      },
+      "wordCountGoals": {
+        "dailyGoal": 1000,
+        "projectGoal": 50000,
+        "dailyHistory": [
+          {
+            "date": "2026-04-07",
+            "targetWords": 1000,
+            "actualWords": 11
+          }
+        ],
+        "dailyBaselineWords": 0,
+        "dailyBaselineDate": "2026-04-07"
+      },
+      "explorerGroupCollapsed": {},
+      "relationshipPairs": {},
+      "recentEdits": [],
+      "timeline": {
+        "manualEvents": [],
+        "categories": [
+          {
+            "id": "plot",
+            "name": "Plot Point",
+            "color": "#e74c3c"
+          },
+          {
+            "id": "character",
+            "name": "Character Event",
+            "color": "#3498db"
+          },
+          {
+            "id": "world",
+            "name": "World Event",
+            "color": "#2ecc71"
+          }
+        ],
+        "viewMode": "vertical",
+        "zoomLevel": "month"
+      },
+      "mentionCache": {
+        "Novalist/Story Builder/Chapters/Untitled.md": {
+          "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "chapter": {
+            "characters": [],
+            "locations": [],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {}
+        },
+        "Novalist/Story Builder/Locations/Snorg.md": {
+          "hash": "34251b6c604ee3dc4e9e251695e95d52d7e4cc29249b60aa8d57b3f03428bb63",
+          "chapter": {
+            "characters": [],
+            "locations": [
+              "Snorg"
+            ],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {
+            "LocationSheet": {
+              "characters": [],
+              "locations": [
+                "Snorg"
+              ],
+              "items": [],
+              "lore": []
+            }
+          }
+        },
+        "Novalist/Story Builder/Characters/Untitled.md": {
+          "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "chapter": {
+            "characters": [],
+            "locations": [],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {}
+        },
+        "Novalist/Story Builder/Characters/Joan the Arch Trembleton.md": {
+          "hash": "f6c197528e120207faa5bad042dd4d93caa5fa12c06ad0d88e7c47db814ffbad",
+          "chapter": {
+            "characters": [
+              "Joan the Arch Trembleton",
+              "Christoph the Great"
+            ],
+            "locations": [],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {
+            "CharacterSheet": {
+              "characters": [
+                "Joan the Arch Trembleton",
+                "Christoph the Great"
+              ],
+              "locations": [],
+              "items": [],
+              "lore": []
+            }
+          }
+        },
+        "Novalist/Story Builder/Characters/Christoph the Great.md": {
+          "hash": "562b766bf32392a4abe713ce17e6607bbbdf6b0fcdcc249881e9b02e4c36abea",
+          "chapter": {
+            "characters": [],
+            "locations": [],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {
+            "CharacterSheet": {
+              "characters": [],
+              "locations": [],
+              "items": [],
+              "lore": []
+            }
+          }
+        },
+        "Novalist/Story Builder/Items/Untitled.md": {
+          "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "chapter": {
+            "characters": [],
+            "locations": [],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {}
+        },
+        "Novalist/Story Builder/Items/Green Dildo.md": {
+          "hash": "38349ee1b3eb7bfd37ec086661ea8350bed2926cef9a7c4ce2e10d453e5241d4",
+          "chapter": {
+            "characters": [],
+            "locations": [],
+            "items": [
+              "Green Dildo"
+            ],
+            "lore": []
+          },
+          "scenes": {
+            "ItemSheet": {
+              "characters": [],
+              "locations": [],
+              "items": [
+                "Green Dildo"
+              ],
+              "lore": []
+            }
+          }
+        },
+        "Novalist/Story Builder/Chapters/Chapter 1 - Testing.md": {
+          "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "chapter": {
+            "characters": [],
+            "locations": [],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {}
+        },
+        "Novalist/Story Builder/Chapters/Draft.md": {
+          "hash": "4c407879487112294ad277d071d30e07d4a1d59ecb3dbd712041d1993343607b",
+          "chapter": {
+            "characters": [],
+            "locations": [],
+            "items": [],
+            "lore": []
+          },
+          "scenes": {}
+        }
+      }
+    }
+  },
+  "ollama": {
+    "enabled": false,
+    "provider": "ollama",
+    "analysisMode": "paragraph",
+    "baseUrl": "http://127.0.0.1:11434",
+    "model": "",
+    "autoManageModel": true,
+    "checkReferences": true,
+    "checkInconsistencies": true,
+    "checkSuggestions": true,
+    "copilotPath": "copilot",
+    "copilotModel": "",
+    "temperature": 0.7,
+    "maxTokens": 8192,
+    "disableRegexReferences": false
+  },
+  "recentEdits": []
+}
