@@ -1,0 +1,102 @@
+.base-launcher-container {
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-primary);
+}
+
+/* Header Section: Now holds Title and Dropdown */
+.base-launcher-header-section {
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.base-launcher-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-accent);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Dropdown Styling */
+.base-launcher-controls {
+    width: 100%;
+}
+
+.base-launcher-select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    background-color: var(--background-modifier-form-field);
+    color: var(--text-normal);
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none; /* Helps styling on iOS/Android */
+    appearance: none;
+}
+
+.base-launcher-select:hover {
+    border-color: var(--interactive-accent);
+}
+
+/* List Area */
+.base-launcher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto; /* Scroll only the list, keep header static */
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+.base-launcher-empty {
+    font-style: italic;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.base-launcher-item {
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.base-launcher-item:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.base-launcher-item:active {
+    transform: scale(0.98);
+}
+
+.base-launcher-icon {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--interactive-accent);
+    flex-shrink: 0;
+}
+
+.base-launcher-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.base-launcher-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-normal);
+    word-break: break-word;
+}
