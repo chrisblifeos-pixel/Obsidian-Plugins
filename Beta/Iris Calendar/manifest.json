@@ -1,0 +1,9 @@
+{
+    "id": "iris-calendar",
+    "name": "Iris Calendar",
+    "version": "0.1.0",
+    "minAppVersion": "1.4.0",
+    "description": "Google Calendar-style week view showing notes as time blocks based on date, time, and duration frontmatter.",
+    "author": "mgodd",
+    "isDesktopOnly": false
+}
