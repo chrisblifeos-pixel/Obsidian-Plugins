@@ -1,0 +1,72 @@
+/* Container */
+.music-player-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+}
+
+/* Title */
+.mp-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--text-accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Controls */
+.mp-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.mp-btn {
+    cursor: pointer;
+    background-color: var(--interactive-normal);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 1.2em;
+}
+
+.mp-btn:hover {
+    background-color: var(--interactive-hover);
+}
+
+.btn-active {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+/* Playlist */
+.mp-playlist {
+    flex-grow: 1;
+    overflow-y: auto;
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: 10px;
+}
+
+.mp-playlist-item {
+    padding: 8px 5px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    cursor: pointer;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.mp-playlist-item:hover {
+    color: var(--text-normal);
+    background-color: var(--background-secondary);
+}
+
+.is-active-track {
+    color: var(--text-accent);
+    font-weight: bold;
+    background-color: var(--background-secondary-alt);
+}

@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-music-player",
+	"name": "Music Player",
+	"version": "1.0.1",
+	"minAppVersion": "0.15.0",
+	"description": "A simple music player that reads MP3s from Library/Music and plays them in the sidebar.",
+	"author": "Chris",
+	"authorUrl": "",
+	"isDesktopOnly": false
+}
