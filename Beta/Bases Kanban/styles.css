@@ -1,0 +1,490 @@
+/*
+ * Bases Kanban Plugin Styles
+ */
+
+/* CSS Variables for theming */
+body {
+	--kanban-column-width: 280px;
+	--kanban-column-gap: var(--size-4-3);
+	--kanban-card-gap: var(--size-4-2);
+	--kanban-column-bg: var(--background-secondary);
+	--kanban-card-bg: var(--background-primary);
+	--kanban-card-border: var(--background-modifier-border);
+	--kanban-header-color: var(--text-muted);
+}
+
+/* Main container - no vertical overflow, only horizontal */
+.bases-kanban-container {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding: var(--size-4-3);
+	display: flex;
+	flex-direction: column;
+}
+
+/* Placeholder message */
+.bases-kanban-placeholder {
+	color: var(--text-muted);
+	font-style: italic;
+	padding: var(--size-4-4);
+	text-align: center;
+}
+
+/* Kanban board - horizontal scroll only */
+.bases-kanban-board {
+	display: flex;
+	gap: var(--kanban-column-gap);
+	height: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-bottom: var(--size-4-3);
+	flex: 1;
+	min-height: 0; /* Important for flex children to shrink */
+}
+
+/* Individual column - fixed height, internal scroll */
+.bases-kanban-column {
+	flex: 0 0 var(--kanban-column-width);
+	min-width: var(--kanban-column-width);
+	max-width: var(--kanban-column-width);
+	background-color: var(--kanban-column-bg);
+	border-radius: var(--radius-m);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Column header - always visible at top */
+.bases-kanban-column-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--size-4-2) var(--size-4-3);
+	border-bottom: 1px solid var(--background-modifier-border);
+	background-color: var(--kanban-column-bg);
+	border-radius: var(--radius-m) var(--radius-m) 0 0;
+	flex-shrink: 0;
+}
+
+.bases-kanban-header-left {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+	min-width: 0;
+	flex: 1;
+}
+
+.bases-kanban-header-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-1);
+	flex-shrink: 0;
+}
+
+.bases-kanban-column-header h3 {
+	margin: 0;
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-semibold);
+	color: var(--text-normal);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.bases-kanban-no-value-title {
+	color: var(--text-muted);
+	font-style: italic;
+}
+
+.bases-kanban-column-count {
+	font-size: var(--font-ui-smaller);
+	color: var(--kanban-header-color);
+	background-color: var(--background-modifier-hover);
+	padding: 2px 8px;
+	border-radius: var(--radius-s);
+	flex-shrink: 0;
+}
+
+/* Header action buttons */
+.bases-kanban-add-card-btn,
+.bases-kanban-set-property-btn {
+	padding: var(--size-2-1);
+	border-radius: var(--radius-s);
+	opacity: 0.7;
+	transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.bases-kanban-add-card-btn:hover,
+.bases-kanban-set-property-btn:hover {
+	opacity: 1;
+	background-color: var(--background-modifier-hover);
+}
+
+.bases-kanban-set-property-btn {
+	color: var(--text-accent);
+}
+
+/* Cards container - scrolls independently */
+.bases-kanban-cards {
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: var(--size-4-2);
+	display: flex;
+	flex-direction: column;
+	gap: var(--kanban-card-gap);
+	min-height: 0; /* Important for scroll to work */
+}
+
+/* Individual card */
+.bases-kanban-card {
+	background-color: var(--kanban-card-bg);
+	border: 1px solid var(--kanban-card-border);
+	border-radius: var(--radius-s);
+	padding: var(--size-4-2) var(--size-4-3);
+	cursor: pointer;
+	transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.bases-kanban-card:hover {
+	border-color: var(--background-modifier-border-hover);
+	box-shadow: var(--shadow-s);
+}
+
+/* Card title */
+.bases-kanban-card-title {
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-medium);
+	color: var(--text-normal);
+}
+
+.bases-kanban-card-title a {
+	color: var(--text-normal);
+	text-decoration: none;
+}
+
+.bases-kanban-card-title a:hover {
+	color: var(--text-accent);
+	text-decoration: underline;
+}
+
+/* Card properties */
+.bases-kanban-card-properties {
+	margin-top: var(--size-4-2);
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-2-1);
+}
+
+.bases-kanban-property-row {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-2);
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+}
+
+.bases-kanban-property-icon {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 14px;
+	height: 14px;
+	--icon-size: 14px;
+	opacity: 0.7;
+}
+
+.bases-kanban-property-value {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 1.3;
+}
+
+/* Add column button */
+.bases-kanban-add-column {
+	flex: 0 0 var(--kanban-column-width);
+	min-width: var(--kanban-column-width);
+	max-width: var(--kanban-column-width);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding-top: var(--size-4-2);
+}
+
+.bases-kanban-add-column-btn {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-2);
+	padding: var(--size-4-2) var(--size-4-3);
+	border-radius: var(--radius-m);
+	background-color: transparent;
+	border: 2px dashed var(--background-modifier-border);
+	color: var(--text-muted);
+	cursor: pointer;
+	transition: all 0.15s ease;
+	font-size: var(--font-ui-small);
+	width: 100%;
+	justify-content: center;
+}
+
+.bases-kanban-add-column-btn:hover {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--text-muted);
+	color: var(--text-normal);
+}
+
+/* View container styling for Bases */
+.bases-view[data-view-type="kanban"] {
+	--bases-view-padding: 0;
+}
+
+/* Embedded view height */
+.bases-embed .bases-kanban-container,
+.block-language-base .bases-kanban-container {
+	min-height: 300px;
+	max-height: 500px;
+}
+
+/* Full page view */
+.workspace-leaf-content[data-type="bases"] .bases-kanban-container {
+	height: 100%;
+}
+
+/* Scrollbar styling for cards container */
+.bases-kanban-cards::-webkit-scrollbar {
+	width: 6px;
+}
+
+.bases-kanban-cards::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.bases-kanban-cards::-webkit-scrollbar-thumb {
+	background-color: var(--scrollbar-thumb-bg);
+	border-radius: 3px;
+}
+
+.bases-kanban-cards::-webkit-scrollbar-thumb:hover {
+	background-color: var(--scrollbar-active-thumb-bg);
+}
+
+/* Scrollbar for board horizontal scroll */
+.bases-kanban-board::-webkit-scrollbar {
+	height: 8px;
+}
+
+.bases-kanban-board::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.bases-kanban-board::-webkit-scrollbar-thumb {
+	background-color: var(--scrollbar-thumb-bg);
+	border-radius: 4px;
+}
+
+.bases-kanban-board::-webkit-scrollbar-thumb:hover {
+	background-color: var(--scrollbar-active-thumb-bg);
+}
+
+/* Modal styles */
+.bases-kanban-modal {
+	max-width: 400px;
+}
+
+.bases-kanban-modal h3 {
+	margin: 0 0 var(--size-4-3) 0;
+}
+
+.bases-kanban-modal h4 {
+	margin: var(--size-4-3) 0 var(--size-4-2) 0;
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+}
+
+.bases-kanban-add-column-modal {
+	max-width: 500px;
+}
+
+.bases-kanban-file-list {
+	max-height: 300px;
+	overflow-y: auto;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	padding: var(--size-4-2);
+	margin-bottom: var(--size-4-3);
+}
+
+.bases-kanban-file-item {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+	padding: var(--size-2-2) 0;
+}
+
+.bases-kanban-file-item:not(:last-child) {
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.bases-kanban-file-item label {
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.bases-kanban-file-item input[type="checkbox"] {
+	flex-shrink: 0;
+}
+
+/* ==================== Drag & Drop Styles ==================== */
+
+/* Drag handle in column header */
+.bases-kanban-drag-handle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	--icon-size: 14px;
+	color: var(--text-faint);
+	opacity: 0;
+	cursor: grab;
+	transition: opacity 0.15s ease, color 0.15s ease;
+	flex-shrink: 0;
+	margin-right: var(--size-2-1);
+}
+
+.bases-kanban-column-header:hover .bases-kanban-drag-handle {
+	opacity: 1;
+}
+
+.bases-kanban-drag-handle:hover {
+	color: var(--text-muted);
+}
+
+.bases-kanban-drag-handle:active {
+	cursor: grabbing;
+}
+
+/* Draggable elements */
+.bases-kanban-draggable {
+	cursor: grab;
+}
+
+.bases-kanban-draggable:active {
+	cursor: grabbing;
+}
+
+/* Element being dragged */
+.bases-kanban-dragging {
+	opacity: 0.5;
+	transform: scale(0.98);
+	box-shadow: var(--shadow-l);
+}
+
+.bases-kanban-column.bases-kanban-dragging {
+	background-color: var(--background-secondary-alt);
+}
+
+.bases-kanban-card.bases-kanban-dragging {
+	background-color: var(--background-primary-alt);
+}
+
+/* Drag over state for columns */
+.bases-kanban-column.bases-kanban-drag-over {
+	background-color: var(--background-modifier-hover);
+	outline: 2px dashed var(--interactive-accent);
+	outline-offset: -2px;
+}
+
+/* Cards container drop zone active */
+.bases-kanban-cards.bases-kanban-drop-zone-active {
+	background-color: var(--background-modifier-hover);
+	outline: 2px dashed var(--interactive-accent);
+	outline-offset: -4px;
+	border-radius: var(--radius-s);
+}
+
+/* Drop indicator line */
+.bases-kanban-drop-indicator {
+	position: absolute;
+	background-color: var(--interactive-accent);
+	border-radius: 2px;
+	pointer-events: none;
+	z-index: 100;
+	transition: top 0.1s ease, left 0.1s ease;
+	display: none;
+	/* Positioning via CSS custom properties */
+	top: var(--indicator-top);
+	left: var(--indicator-left);
+	width: var(--indicator-width);
+	height: var(--indicator-height);
+}
+
+.bases-kanban-drop-indicator.is-visible {
+	display: block;
+}
+
+/* Column drop indicator - vertical line */
+.bases-kanban-drop-indicator-column {
+	width: 4px;
+	box-shadow: 0 0 8px var(--interactive-accent);
+}
+
+/* Card drop indicator - horizontal line */
+.bases-kanban-drop-indicator-card {
+	height: 4px;
+	box-shadow: 0 0 8px var(--interactive-accent);
+}
+
+/* Make board position relative for absolute positioning of drop indicator */
+.bases-kanban-board {
+	position: relative;
+}
+
+/* Make cards container position relative for card drop indicators */
+.bases-kanban-cards {
+	position: relative;
+}
+
+/* Card draggable cursor */
+.bases-kanban-card {
+	cursor: grab;
+}
+
+.bases-kanban-card:active {
+	cursor: grabbing;
+}
+
+/* Prevent text selection during drag */
+.bases-kanban-board.dragging-active {
+	user-select: none;
+}
+
+/* Smooth transitions for cards and columns moving */
+.bases-kanban-column {
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.bases-kanban-card {
+	transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease,
+		border-color 0.15s ease;
+}
+
+/* Highlight effect when card/column is dropped */
+@keyframes kanban-drop-highlight {
+	0% {
+		box-shadow: 0 0 0 3px var(--interactive-accent);
+	}
+	100% {
+		box-shadow: none;
+	}
+}
+
+.bases-kanban-just-dropped {
+	animation: kanban-drop-highlight 0.5s ease-out;
+}

@@ -1,0 +1,9 @@
+{
+	"id": "bases-kanban",
+	"name": "Bases Kanban",
+	"version": "0.1.1",
+	"minAppVersion": "1.10.0",
+	"description": "Adds a kanban layout to Bases.",
+	"author": "ewerx",
+	"isDesktopOnly": false
+}
