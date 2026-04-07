@@ -1,0 +1,1 @@
+Kanban view for bases
