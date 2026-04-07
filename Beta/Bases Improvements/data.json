@@ -1,0 +1,6 @@
+{
+  "codeFenceLanguage": "base",
+  "targetEmbeds": true,
+  "inputDebounceMs": 250,
+  "updateDebounceMs": 250
+}
