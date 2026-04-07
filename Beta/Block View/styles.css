@@ -1,0 +1,170 @@
+/* @settings
+
+name: Block View
+id: block-view
+settings:
+	-
+		id: block-view-hide-statusbar
+		title: Hide status bar
+		description: Hide the status bar that shows block and file counts
+		type: class-toggle
+		default: false
+	-
+		id: block-view-blocks-indent
+		title: Block indent
+		description: Left indent for blocks container
+		type: variable-number-slider
+		default: 0.5
+		min: 0
+		max: 2
+		step: 0.05
+		format: rem
+	-
+		id: block-view-blocks-top-gap
+		title: Header spacing
+		description: Space between file header and blocks
+		type: variable-number-slider
+		default: 0.5
+		min: 0
+		max: 2
+		step: 0.05
+		format: rem
+	-
+		id: block-view-block-gap
+		title: Block spacing
+		description: Space between individual blocks
+		type: variable-number-slider
+		default: 0.5
+		min: 0
+		max: 2
+		step: 0.05
+		format: rem
+
+*/
+
+body {
+	--block-view-blocks-indent: 0.5rem;
+	--block-view-blocks-top-gap: 0.5rem;
+	--block-view-block-gap: 0.5rem;
+}
+
+.block-view-container {
+	padding: 0.5rem;
+	user-select: text;
+}
+
+.block-view-group {
+	margin-bottom: 1.5rem;
+}
+
+.block-view-group-header {
+	font-weight: var(--font-semibold);
+	font-size: var(--font-ui-medium);
+	margin-bottom: 0.75rem;
+	padding-bottom: 0.25rem;
+	border-bottom: var(--border-width) solid var(--background-modifier-border);
+}
+
+.block-view-file {
+	margin-bottom: 0;
+}
+
+.block-view-file-header {
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	/* don't want to add margin or padding here to avoid gaps with empty properties */
+}
+
+.block-view-file-link {
+	text-decoration: none;
+}
+
+.block-view-property-value {
+	color: var(--text-normal);
+}
+
+.block-view-separator {
+	color: var(--text-faint);
+	user-select: none;
+}
+
+.block-view-blocks {
+	margin-left: var(--block-view-blocks-indent);
+	margin-top: var(--block-view-blocks-top-gap);
+}
+
+.block-view-block {
+	margin-bottom: var(--block-view-block-gap);
+	padding: 0.3rem 0.5rem;
+	border-left: var(--border-width) solid var(--background-modifier-border);
+	padding-left: 0.75rem;
+	user-select: text;
+	cursor: pointer;
+	transition: background-color 0.1s ease;
+}
+
+.block-view-block:hover {
+	background-color: var(--background-modifier-hover);
+}
+
+/* remove margins from first and last child */
+.block-view-block > :first-child {
+	margin-top: 0 !important;
+	margin-block-start: 0 !important;
+}
+.block-view-block > :last-child {
+	margin-bottom: 0 !important;
+	margin-block-end: 0 !important;
+}
+
+.block-view-empty-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem 1rem;
+	text-align: center;
+	color: var(--text-muted);
+}
+
+.block-view-empty-placeholder-title {
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-medium);
+	margin-bottom: 0.3rem;
+	color: var(--text-normal);
+}
+
+.block-view-empty-placeholder-subtitle {
+	font-size: var(--font-ui-small);
+	margin: 0;
+}
+
+.bv-task-anchor {
+	display: none;
+}
+
+.block-view-block-placeholder {
+	min-height: 3rem;
+}
+
+.block-view-statusbar {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	padding: 0 0.75rem;
+	height: 1.5rem;
+	display: flex;
+	align-items: center;
+	background-color: var(--background-secondary);
+	border-bottom: var(--border-width) solid var(--background-modifier-border);
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	line-height: 1;
+}
+
+.block-view-hide-statusbar .block-view-statusbar {
+	display: none;
+}
