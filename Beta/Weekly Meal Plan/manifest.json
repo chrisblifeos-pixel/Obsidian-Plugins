@@ -1,0 +1,11 @@
+{
+	"id": "weekly-meal-planner",
+	"name": "Weekly Meal Planner",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Generate weekly meal plans and shopping lists from your recipe notes.",
+	"author": "Kurtis Chiappone",
+	"authorUrl": "https://chiappone.net",
+	"isDesktopOnly": false,
+	"fundingUrl": "https://www.buymeacoffee.com/kchiappone"
+}

@@ -1,0 +1,40 @@
+{
+  "recipeFolderPath": "Recipes",
+  "mealsPerWeek": 7,
+  "weeksToGenerate": 1,
+  "daysOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ],
+  "enableSeasonality": false,
+  "hemisphere": "northern",
+  "dayConstraints": {},
+  "skipKidMealIfFamilyFriendly": true,
+  "generateShoppingList": true,
+  "mealPlanFolderPath": "Meals",
+  "mealPlanTags": [
+    "meal_plan"
+  ],
+  "dayEmojis": {
+    "monday": "🌙",
+    "tuesday": "🔥",
+    "wednesday": "🐪",
+    "thursday": "⚡",
+    "friday": "🎉",
+    "saturday": "🌟",
+    "sunday": "☀️",
+    "default": "📅"
+  },
+  "difficultyEmojis": {
+    "easy": "🟢",
+    "medium": "🟡",
+    "hard": "🔴",
+    "default": "⚪"
+  },
+  "currentMealPlanPath": "Meals/Meal Plan - 2026-04-07_17-22-37.md"
+}
