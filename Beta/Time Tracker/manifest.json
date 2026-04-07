@@ -1,0 +1,11 @@
+{
+	"id": "time-tracker",
+	"name": "Time Tracker",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Track, plan, and analyze your time, all saved to CSV files directly in your vault.",
+	"author": "Lu-Wai Wong",
+	"authorUrl": "https://github.com/luwaiwong",
+	"fundingUrl": "https://ko-fi.com/luwai",
+	"isDesktopOnly": false
+}
