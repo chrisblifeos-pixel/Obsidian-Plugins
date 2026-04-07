@@ -1,0 +1,47 @@
+
+/* Infinite Notes Container - "Reels" Style */
+.infinite-notes-container {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual Note Card */
+.infinite-note-card {
+    height: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--background-modifier-border);
+    position: relative;
+    overflow-y: auto; /* Allow scrolling within the note if it's too long, though reels usually don't. 
+                         For notes, we probably want to see the whole note content? 
+                         Maybe max-height and hidden overflow with "read more"? 
+                         For now let's keep it simple: card assumes full viewport height. */
+}
+
+.infinite-note-header {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.infinite-note-content {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Mobile adjustments if necessary */
+@media screen and (max-width: 768px) {
+    .infinite-note-card {
+        padding: 10px;
+    }
+}
