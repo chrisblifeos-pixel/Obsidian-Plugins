@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "tagPrefix": "#task",
+    "inboxFile": "Task Inbox.md",
+    "archivedGroups": [],
+    "showCompleted": true
+  },
+  "customSortOrders": {}
+}

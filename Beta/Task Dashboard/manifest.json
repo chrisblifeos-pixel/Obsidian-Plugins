@@ -1,0 +1,10 @@
+{
+  "id": "tasks-dashboard",
+  "name": "Tasks Dashboard",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Visual task dashboard that reads #todo tags from your vault with Discord-style sidebar, categories, and two-way sync.",
+  "author": "Sean Shmulevich",
+  "authorUrl": "https://github.com/Sean-Shmulevich",
+  "isDesktopOnly": false
+}

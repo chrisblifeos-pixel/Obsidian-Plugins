@@ -1,0 +1,219 @@
+.tasks-dashboard-container {
+  --accent: var(--interactive-accent);
+  --accent-hover: var(--interactive-accent-hover, var(--interactive-accent));
+  --surface-1: var(--background-primary);
+  --surface-2: var(--background-secondary);
+  --surface-3: var(--background-modifier-hover);
+  --border-color: var(--background-modifier-border);
+  --text-muted: var(--text-muted);
+  --sidebar-bg: color-mix(in srgb, var(--background-secondary) 92%, black 8%);
+  --sidebar-text: var(--text-normal);
+  --sidebar-muted: var(--text-muted);
+  --sidebar-border: var(--background-modifier-border);
+  --sidebar-active-bg: color-mix(in srgb, var(--interactive-accent) 12%, var(--background-secondary));
+  display: grid;
+  grid-template-columns: clamp(260px, 24vw, 320px) minmax(0, 1fr);
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 300px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--interactive-accent) 10%, transparent), transparent 35%),
+    radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--interactive-accent) 7%, transparent), transparent 45%),
+    var(--background-primary);
+  color: var(--text-normal);
+}
+
+.tasks-dashboard-container * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.tasks-dashboard-container .tasks-dashboard-main {
+  min-width: 0;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.tasks-dashboard-container .tasks-dashboard-sidebar-pane {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.tasks-dashboard-container .tasks-dashboard-sidebar {
+  height: 100%;
+}
+
+.tasks-dashboard-container .tasks-dashboard-sidebar-toggle {
+  display: none;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--border-color);
+  background: var(--surface-2);
+  color: inherit;
+  border-radius: 0.7rem;
+  padding: 0.45rem 0.7rem;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.tasks-dashboard-container .tasks-dashboard-sidebar-backdrop {
+  display: none;
+}
+
+.tasks-dashboard-container .topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--background-primary) 80%, var(--background-secondary));
+  backdrop-filter: blur(4px);
+}
+
+.tasks-dashboard-container .topbar h1 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.tasks-dashboard-container .topbar p {
+  margin: 0.2rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.tasks-dashboard-container .topbar-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tasks-dashboard-container button,
+.tasks-dashboard-container input,
+.tasks-dashboard-container select {
+  font: inherit;
+}
+
+.tasks-dashboard-container .topbar-actions button {
+  border: 1px solid var(--border-color);
+  background: var(--surface-2);
+  color: inherit;
+  border-radius: 0.65rem;
+  padding: 0.45rem 0.7rem;
+}
+
+.tasks-dashboard-container .topbar-actions button.active {
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface-2));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border-color));
+}
+
+.tasks-dashboard-container .topbar-actions button:disabled {
+  opacity: 0.6;
+}
+
+.tasks-dashboard-container .error-banner {
+  border: 1px solid color-mix(in srgb, #ff6b6b 40%, var(--border-color));
+  background: color-mix(in srgb, #ff6b6b 8%, var(--surface-1));
+  color: var(--text-normal);
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.8rem;
+}
+
+.tasks-dashboard-container .focus-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+}
+
+.tasks-dashboard-container .panel {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: var(--surface-1);
+}
+
+.tasks-dashboard-container .panel h3 {
+  margin: 0 0 0.5rem;
+}
+
+.tasks-dashboard-container .panel p {
+  margin: 0.35rem 0;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .tasks-dashboard-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tasks-dashboard-container .tasks-dashboard-sidebar-pane {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: min(86%, 320px);
+    max-width: calc(100% - 1rem);
+    border-right: 1px solid var(--sidebar-border);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    transform: translateX(-102%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 180ms ease, opacity 180ms ease;
+    overflow: visible;
+  }
+
+  .tasks-dashboard-container.sidebar-open .tasks-dashboard-sidebar-pane {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .tasks-dashboard-container .tasks-dashboard-sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .tasks-dashboard-container .tasks-dashboard-sidebar-backdrop {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.28);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .tasks-dashboard-container .focus-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .tasks-dashboard-container .tasks-dashboard-main {
+    padding: 0.6rem;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tasks-dashboard-container .tasks-dashboard-main {
+    padding: 0.6rem;
+    gap: 0.6rem;
+  }
+
+  .tasks-dashboard-container .tasks-dashboard-sidebar-pane {
+    width: calc(100% - 0.4rem);
+    max-width: calc(100% - 0.4rem);
+  }
+}
