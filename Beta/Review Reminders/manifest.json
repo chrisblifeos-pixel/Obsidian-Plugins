@@ -1,0 +1,10 @@
+{
+  "id": "review-reminder",
+  "name": "Review Reminder",
+  "version": "1.0.1",
+  "minAppVersion": "1.0.0",
+  "description": "A sidebar dashboard that shows notes due for review, grouped by urgency, with built-in spaced repetition.",
+  "author": "Imad Jalloul",
+  "authorUrl": "https://github.com/Imadjalloul",
+  "isDesktopOnly": false
+}

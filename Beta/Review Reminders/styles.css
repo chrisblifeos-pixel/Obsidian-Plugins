@@ -1,0 +1,386 @@
+/* ═══════════════════════════════════════════════════════════
+   Review Reminder — Styles
+   Dark / light mode compatible via CSS variables
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Container ── */
+.review-reminder-container {
+  padding: 0;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+/* ── Header ── */
+.rr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.rr-header h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-normal);
+}
+
+.rr-refresh-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.rr-refresh-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+/* ── Empty state ── */
+.rr-empty {
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Section ── */
+.rr-section {
+  margin-bottom: 2px;
+}
+
+.rr-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.rr-section-header:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* Urgency colors */
+.rr-overdue .rr-section-header {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.rr-today .rr-section-header {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.06);
+}
+
+.rr-upcoming .rr-section-header {
+  color: #eab308;
+  background: rgba(234, 179, 8, 0.05);
+}
+
+.rr-later .rr-section-header {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.05);
+}
+
+/* Badge */
+.rr-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 10px;
+  line-height: 1.4;
+}
+
+.rr-overdue .rr-badge {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.rr-today .rr-badge {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.rr-upcoming .rr-badge {
+  background: rgba(234, 179, 8, 0.12);
+  color: #ca8a04;
+}
+
+.rr-later .rr-badge {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+}
+
+/* Collapsible list */
+.rr-list {
+  overflow: hidden;
+  max-height: 2000px;
+  transition: max-height 0.3s ease;
+}
+
+.rr-list.rr-collapsed {
+  max-height: 0;
+}
+
+/* ── Card ── */
+.rr-card {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--background-modifier-border);
+  transition: background 0.12s;
+}
+
+.rr-card:hover {
+  background: var(--background-modifier-hover);
+}
+
+.rr-card:last-child {
+  border-bottom: none;
+}
+
+.rr-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rr-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.rr-card-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rr-card-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.rr-relative-date {
+  font-weight: 500;
+}
+
+.rr-overdue .rr-relative-date {
+  color: #ef4444;
+}
+
+.rr-today .rr-relative-date {
+  color: #f59e0b;
+}
+
+.rr-level {
+  opacity: 0.7;
+}
+
+/* Tags */
+.rr-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.rr-tag {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--background-modifier-hover);
+  color: var(--text-muted);
+}
+
+.rr-tag-more {
+  font-style: italic;
+}
+
+/* Review button */
+.rr-review-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+
+.rr-review-btn:hover {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+/* ── Status bar ── */
+.review-reminder-status {
+  font-size: 11px;
+  cursor: default;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODAL
+   ═══════════════════════════════════════════════════════════ */
+.rr-modal {
+  max-width: 420px;
+}
+
+.rr-modal h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.rr-modal-note-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-accent);
+  margin: 0 0 16px;
+  word-break: break-word;
+}
+
+/* Level progression */
+.rr-modal-progress {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--background-modifier-hover);
+}
+
+.rr-modal-level-old {
+  color: var(--text-muted);
+}
+
+.rr-modal-arrow {
+  color: var(--text-muted);
+}
+
+.rr-modal-level-new {
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+/* Info */
+.rr-modal-info {
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.rr-modal-date {
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-normal);
+}
+
+/* Quick-pick */
+.rr-modal-quick-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.rr-modal-quick-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.rr-quick-btn {
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.rr-quick-btn:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--text-accent);
+}
+
+/* Actions */
+.rr-modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.rr-confirm-btn {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: opacity 0.15s;
+}
+
+.rr-confirm-btn:hover {
+  opacity: 0.9;
+}
+
+.rr-cancel-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.rr-cancel-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* ── Settings preview ── */
+.rr-settings-preview {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--background-modifier-hover);
+  font-size: 12px;
+}
+
+.rr-settings-preview ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.rr-settings-preview li {
+  margin-bottom: 2px;
+  color: var(--text-muted);
+}
