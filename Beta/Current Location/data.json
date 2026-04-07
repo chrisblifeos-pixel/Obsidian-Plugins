@@ -1,0 +1,5 @@
+{
+  "autoAddFolders": [],
+  "apiKey": "6f3246a54fbd43bb9140a32bd36b345a",
+  "addressFormat": "{house_number} {road} {city}, {state_abbr} {postcode}"
+}
