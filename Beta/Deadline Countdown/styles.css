@@ -1,0 +1,130 @@
+/* STYLING FOR SETTINGS ELEMENTS */
+/* Each category section */
+.grotto-category-container {
+  background-color: transparent;
+}
+/* Container holding the deadlines inside each category */
+.grotto-deadlines-container {
+  min-height: 16px;
+  border: 1px solid transparent;
+}
+/* Category header */
+.grotto-category-header {
+  color: var(--background-primary);
+  background-color: var(--text-normal);
+  font-size: 1.2rem;
+  width: fit-content;
+  padding: 0px 7px;
+  outline: 2px solid var(--background-primary);
+  outline-offset: -4px;
+  line-height: 2rem;
+}
+/* Individual deadlines */
+.grotto-deadline-card {
+  background-color: transparent;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.grotto-deadline-card:last-child {
+  padding-bottom: 8px;
+}
+/* Deadline title */
+.grotto-deadline-title {
+  color: var(--text-normal);
+  font-size: 1.2rem;
+  text-decoration: underline solid var(--color-accent);
+}
+/* Deadline Action Icons */
+.grotto-deadline-actions {
+  display: flex;
+}
+.grotto-deadline-actions .clickable-icon {
+  background-color: transparent;
+  padding: 4px;
+}
+/* Delete Button for empty categories */
+.grotto-delete-category-btn {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+/* Default message */
+.grotto-default-category-message {
+  opacity: 1;
+}
+
+/* STYLING FOR SIDEBAR VIEW */
+/* Styling for the sidebar container */
+.grotto-deadline-container-sidebar {
+  padding: 12px;
+  background-color: transparent;
+  border-radius: 0rem;
+  height: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+/* Refresh button */
+.grotto-deadline-container-sidebar .grotto-refresh-button-container button {
+  width: 100%;
+}
+/* Category container */
+.grotto-deadline-categories {
+  border: 1px solid var(--text-normal);
+  padding: 8px;
+}
+.grotto-deadline-container-sidebar .grotto-deadline-card:last-child {
+  padding-bottom: 0px;
+}
+/* Category header for sidebar view */
+.grotto-category-section h3 {
+  margin-top: 8px;
+  margin-bottom: 0px;
+  padding-left: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  --grotto-light-5: hsl(33, 33%, 90%);
+  color: var(--grotto-light-5);
+  background-color: var(--color-accent);
+  border: 1px solid var(--text-normal);
+  border-width: 1px 1px 0px 1px;
+}
+/* Deadline container when urgent status is active */
+.grotto-deadline-card.grotto-deadline-urgent {
+  --grotto-light-5: hsl(33, 33%, 90%);
+  color: var(--grotto-light-5);
+  background-color: var(--text-error);
+  border: 1px solid var(--text-normal);
+  border-radius: 0rem;
+  padding: 4px;
+}
+.grotto-deadline-card.grotto-deadline-urgent .grotto-deadline-title {
+  text-decoration: underline solid var(--text-normal);
+}
+.grotto-deadline-card.grotto-deadline-urgent .grotto-deadline-label, 
+.grotto-deadline-card.grotto-deadline-urgent .grotto-deadline-interval, 
+.grotto-deadline-card.grotto-deadline-urgent .grotto-deadline-resets, 
+.grotto-deadline-card.grotto-deadline-urgent .grotto-deadline-ends {
+  color: var(--text-normal);
+}
+/* Deadline standard texts */
+.grotto-deadline-label {
+  color: var(--color-accent);
+}
+.grotto-deadline-ends {
+  color: var(--color-accent);
+  padding-right: 13px;
+}
+.grotto-deadline-resets {
+  color: var(--color-accent);
+}
+/* Alignment adjustments */
+.grotto-deadline-date-value {
+  padding-left: 4px;
+}
+.grotto-deadline-interval-value {
+  padding-left: 12px;
+}
+.grotto-deadline-time-value {
+  padding-left: 3px;
+}
