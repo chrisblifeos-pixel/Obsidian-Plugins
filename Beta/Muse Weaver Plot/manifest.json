@@ -1,0 +1,11 @@
+{
+  "id": "muse-weaver-plot",
+  "name": "Muse Weaver Plot",
+  "version": "1.0.2",
+  "minAppVersion": "0.15.0",
+  "description": "MPC-10 — Shape your story's backbone with 10 questions. A guided plot creation tool for novel writers.",
+  "author": "satoshikokubo",
+  "authorUrl": "https://github.com/satoshikokubo",
+  "fundingUrl": "https://buymeacoffee.com/kokubox",
+  "isDesktopOnly": false
+}
