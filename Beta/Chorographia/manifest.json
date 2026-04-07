@@ -1,0 +1,9 @@
+{
+	"id": "chorographia",
+	"name": "Chorographia",
+	"version": "0.1.0",
+	"minAppVersion": "1.5.0",
+	"description": "Build an interactive semantic map of your vault using embedding models and UMAP projection.",
+	"author": "teleologia",
+	"isDesktopOnly": false
+}
