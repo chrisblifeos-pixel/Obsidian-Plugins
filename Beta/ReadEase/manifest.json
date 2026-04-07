@@ -1,0 +1,11 @@
+{
+  "id": "readease",
+  "name": "ReadEase",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Customise your reading view with fonts, themes, spacing and more via a floating panel.",
+  "author": "LCPYM",
+  "authorUrl": "https://buymeacoffee.com/lcpym",
+  "fundingUrl": "https://buymeacoffee.com/lcpym",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,34 @@
+{
+  "fontSize": 17,
+  "lineHeight": 1.75,
+  "letterSpacing": 0.3,
+  "darkMode": true,
+  "pageMargin": 40,
+  "fontFamily": "Georgia, serif",
+  "maxWidth": 700,
+  "textAlign": "left",
+  "fontWeight": 400,
+  "paragraphSpacing": 1.3,
+  "currentTheme": "midnight",
+  "backgroundColor": "#0d1117",
+  "textColor": "#c9d1d9",
+  "deviceSettings": {
+    "device_1280x800_Linux_aarch64": {
+      "fontSize": 17,
+      "lineHeight": 1.75,
+      "letterSpacing": 0.3,
+      "fontFamily": "Georgia, serif",
+      "fontWeight": 400,
+      "paragraphSpacing": 1.3,
+      "maxWidth": 700,
+      "pageMargin": 40,
+      "textAlign": "left",
+      "backgroundColor": "#0d1117",
+      "textColor": "#c9d1d9",
+      "currentTheme": "midnight",
+      "themeCustomizations": {}
+    }
+  },
+  "modalOpacity": 0.5,
+  "themeCustomizations": {}
+}
