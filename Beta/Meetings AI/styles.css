@@ -1,0 +1,1502 @@
+/* ═══════════════════════════════════════════
+   Meetings Ai — Meeting Widget Styles
+   ═══════════════════════════════════════════ */
+
+/* Hide the "edit code block" pencil button on our widget */
+.meeting-ai-block .edit-block-button,
+.meeting-ai-block .code-block-flair,
+div:has(> .meeting-ai-block) .edit-block-button,
+div:has(> .meeting-ai-block) .code-block-flair {
+  display: none !important;
+}
+
+/* Remove code-block styling (background, padding, border) from parent */
+.meeting-ai-block {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Also target Obsidian's code block wrapper */
+div:has(> .meeting-ai-block),
+pre:has(> .meeting-ai-block) {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.meeting-ai-widget {
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+/* Prevent Obsidian bookmark/link hover highlights inside widget */
+.meeting-ai-widget *:hover {
+  text-decoration: none;
+}
+.meeting-ai-block:hover {
+  background: none !important;
+}
+
+/* ─── Idle State ─── */
+
+.mm-idle-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Toolbar (Notes badge + Start recording) ── */
+
+.mm-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  gap: 8px;
+}
+
+.mm-toolbar-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mm-toolbar-tag-icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  opacity: 0.7;
+}
+
+.mm-toolbar-tag-label {
+  line-height: 1;
+}
+
+.mm-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Inline notes (shared by idle, recording, paused) ── */
+
+.mm-inline-notes {
+  width: 100%;
+  height: 160px;
+  min-height: 160px;
+  max-height: 400px;
+  padding: 12px 4px;
+  border: none !important;
+  border-radius: 0;
+  background: transparent !important;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  font-family: var(--font-text);
+  resize: none;
+  overflow-y: auto;
+  box-sizing: border-box;
+  cursor: text;
+  box-shadow: none !important;
+}
+
+.mm-inline-notes:hover,
+.mm-inline-notes:focus,
+.mm-inline-notes:active {
+  outline: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--text-normal);
+}
+
+.mm-inline-notes::placeholder {
+  color: var(--text-faint);
+}
+
+.mm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--interactive-normal);
+  color: var(--text-normal);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.mm-btn:hover {
+  background: var(--interactive-hover);
+}
+
+/* Pill-style start recording button (inside tab bar) */
+
+.mm-tab-start {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.mm-tab-start:hover {
+  background: var(--interactive-accent-hover);
+  border-color: var(--interactive-accent-hover);
+  color: var(--text-on-accent);
+}
+
+.mm-tab-start .mm-tab-icon {
+  opacity: 1;
+}
+
+/* Stop button — red pill */
+
+.mm-tab-stop {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+.mm-tab-stop:hover {
+  background: #c0392b;
+  border-color: #c0392b;
+  color: #fff;
+}
+
+.mm-tab-stop .mm-tab-icon {
+  opacity: 1;
+}
+
+/* Recording control pill (pause) */
+
+.mm-tab-rec-ctrl {
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border);
+  color: var(--text-normal);
+}
+
+.mm-tab-rec-ctrl:hover {
+  background: var(--background-modifier-border);
+}
+
+.mm-tab-rec-ctrl .mm-tab-icon {
+  opacity: 1;
+}
+
+/* Inline recording timer */
+
+.mm-rec-timer {
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-normal);
+  padding: 0 4px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Mini live bars (inline spectrogram in tab bar) */
+
+.mm-mini-bars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.mm-mini-bar {
+  width: 3px;
+  height: 3px;
+  min-height: 3px;
+  border-radius: 1.5px;
+  background: #21A038;
+  transition: height 0.08s ease-out;
+}
+
+/* (large spectrogram canvas removed — only mini-bars used) */
+
+.mm-btn-start {
+  padding: 8px 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.mm-btn-start:hover {
+  background: var(--interactive-accent-hover);
+  border-color: var(--interactive-accent-hover);
+}
+
+.mm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.mm-btn-label {
+  line-height: 1;
+}
+
+/* Assistant selector */
+
+.mm-assistant-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.mm-assistant-label {
+  font-weight: 500;
+}
+
+.mm-assistant-select {
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+
+/* ─── Recording / Paused containers ─── */
+
+.mm-recording-container,
+.mm-paused-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mm-top-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Recording indicator dot + label */
+
+.mm-rec-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mm-rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e74c3c;
+  animation: mm-pulse 1.2s ease-in-out infinite;
+}
+
+.mm-rec-dot.mm-paused {
+  background: var(--text-muted);
+  animation: none;
+}
+
+@keyframes mm-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.mm-rec-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+/* Waveform bars */
+
+.mm-waveform {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  height: 30px;
+  justify-content: center;
+}
+
+.mm-waveform-bar {
+  width: 3px;
+  min-height: 4px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--interactive-accent);
+  animation: mm-wave 0.8s ease-in-out infinite alternate;
+}
+
+.mm-waveform-bar:nth-child(1)  { animation-delay: 0.0s; }
+.mm-waveform-bar:nth-child(2)  { animation-delay: 0.1s; }
+.mm-waveform-bar:nth-child(3)  { animation-delay: 0.2s; }
+.mm-waveform-bar:nth-child(4)  { animation-delay: 0.05s; }
+.mm-waveform-bar:nth-child(5)  { animation-delay: 0.15s; }
+.mm-waveform-bar:nth-child(6)  { animation-delay: 0.25s; }
+.mm-waveform-bar:nth-child(7)  { animation-delay: 0.08s; }
+.mm-waveform-bar:nth-child(8)  { animation-delay: 0.18s; }
+.mm-waveform-bar:nth-child(9)  { animation-delay: 0.12s; }
+.mm-waveform-bar:nth-child(10) { animation-delay: 0.22s; }
+.mm-waveform-bar:nth-child(11) { animation-delay: 0.03s; }
+.mm-waveform-bar:nth-child(12) { animation-delay: 0.13s; }
+
+@keyframes mm-wave {
+  0%   { height: 4px; }
+  100% { height: 24px; }
+}
+
+/* Frozen waveform (paused) */
+
+.mm-waveform.mm-frozen .mm-waveform-bar {
+  animation: none;
+  height: 8px;
+  opacity: 0.4;
+}
+
+/* Elapsed timer */
+
+.mm-elapsed {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-normal);
+  flex-shrink: 0;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Button row */
+
+.mm-btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.mm-btn-pause {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.mm-btn-pause:hover {
+  background: var(--background-modifier-border);
+}
+
+.mm-btn-stop {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+.mm-btn-stop:hover {
+  background: #c0392b;
+  border-color: #c0392b;
+}
+
+.mm-btn-resume {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.mm-btn-resume:hover {
+  background: var(--interactive-accent-hover);
+  border-color: var(--interactive-accent-hover);
+}
+
+/* ─── Processing State ─── */
+
+.mm-processing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.mm-spinner-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mm-spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--background-modifier-border);
+  border-top-color: var(--interactive-accent);
+  border-radius: 50%;
+  animation: mm-spin 0.8s linear infinite;
+}
+
+@keyframes mm-spin {
+  to { transform: rotate(360deg); }
+}
+
+.mm-processing-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ─── Done State — Card + Pill Tabs ─── */
+
+.mm-done-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Card wrapper ── */
+
+.mm-card {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  background: var(--background-primary);
+  padding: 20px;
+}
+
+.mm-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mm-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-normal);
+  margin: 0;
+  padding: 0;
+}
+
+.mm-card-title-date {
+  color: var(--text-muted);
+}
+
+.mm-card-record {
+  padding: 6px 14px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* ── Pill-style tab bar ── */
+
+.mm-tab-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mm-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mm-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  background: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  height: 30px;
+  box-sizing: border-box;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.mm-tab:hover {
+  color: var(--text-normal);
+}
+
+.mm-tab-active {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border);
+}
+
+.mm-tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  opacity: 0.6;
+}
+
+.mm-tab-icon svg {
+  flex-shrink: 0;
+}
+
+.mm-tab-active .mm-tab-icon {
+  opacity: 1;
+}
+
+.mm-tab-label {
+  line-height: 1;
+}
+
+/* Right-side buttons group (home + new) */
+
+.mm-tab-right-btns {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Icon button (home, new meeting) */
+
+.mm-tab-settings-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--background-modifier-border);
+  box-sizing: border-box;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+  flex-shrink: 0;
+}
+
+.mm-tab-settings-btn .mm-tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.mm-tab-settings-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.mm-tab-settings-btn:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+/* Icon-only button active state (e.g. Audio tab) */
+.mm-tab-icon-active {
+  background: var(--interactive-accent) !important;
+  color: var(--text-on-accent, #fff) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+/* Trash button — confirm state (red pill) */
+
+.mm-tab-trash.mm-tab-confirm-active {
+  width: auto;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mm-tab-trash.mm-tab-confirm-active:hover {
+  background: #c0392b;
+  color: #fff;
+}
+
+.mm-tab-content {
+  /* No min-height — let content define the size */
+}
+
+.mm-tab-panel {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-normal);
+  /* No max-height, no scroll — show all content */
+  padding: 0;
+}
+
+/* Notion-style tight spacing — no gaps between items */
+.mm-tab-panel h1,
+.mm-tab-panel h2,
+.mm-tab-panel h3 {
+  margin: 6px 0 1px;
+  line-height: 1.3;
+}
+
+.mm-tab-panel h1:first-child,
+.mm-tab-panel h2:first-child,
+.mm-tab-panel h3:first-child {
+  margin-top: 0;
+}
+
+.mm-tab-panel h1 { font-size: 22px; }
+.mm-tab-panel h2 { font-size: 20px; }
+.mm-tab-panel h3 { font-size: 18px; }
+
+.mm-tab-panel ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.mm-tab-panel li {
+  margin: 0;
+  padding: 1px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.mm-tab-panel p {
+  margin: 0;
+  padding: 1px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.mm-tab-panel hr {
+  margin: 4px 0;
+  border: none;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.mm-summary-panel {
+  padding: 0;
+}
+
+/* User notes block — shown above AI summary */
+
+.mm-user-notes-block {
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.mm-user-notes-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  margin-bottom: 4px;
+}
+
+.mm-user-notes-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-normal);
+  white-space: pre-wrap;
+}
+
+.mm-summary-preview {
+  margin-bottom: 8px;
+}
+
+.mm-summary-editable {
+  outline: none;
+  cursor: text;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.mm-btn-edit-summary {
+  font-size: 12px;
+  padding: 4px 12px;
+  color: var(--text-muted);
+  border-color: var(--background-modifier-border);
+  background: transparent;
+}
+
+.mm-btn-edit-summary:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.mm-summary-textarea {
+  width: 100%;
+  min-height: 200px;
+  max-height: 500px;
+  padding: 10px 12px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-size: 13px;
+  line-height: 1.5;
+  font-family: var(--font-monospace);
+  resize: vertical;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.mm-summary-textarea:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+}
+
+.mm-btn-save-summary {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+  font-size: 13px;
+  padding: 6px 16px;
+}
+
+.mm-btn-save-summary:hover {
+  background: var(--interactive-accent-hover);
+  border-color: var(--interactive-accent-hover);
+}
+
+.mm-transcript-panel {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.mm-notes-hint {
+  color: var(--text-faint);
+  font-style: italic;
+  font-size: 13px;
+}
+
+.mm-notes-textarea {
+  width: 100%;
+  min-height: 120px;
+  max-height: 400px;
+  padding: 10px 4px;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: var(--text-normal);
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: var(--font-text);
+  resize: none;
+  box-sizing: border-box;
+  cursor: text;
+}
+
+.mm-notes-textarea:hover,
+.mm-notes-textarea:focus,
+.mm-notes-textarea:active {
+  outline: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.mm-notes-textarea::placeholder {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ─── Audio Tab ─── */
+
+.mm-audio-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+}
+
+.mm-audio-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mm-audio-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mm-audio-empty {
+  color: var(--text-faint);
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* ─── Custom Player ─── */
+
+.mm-player {
+  background: var(--background-secondary);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ─── Progress bar ─── */
+
+.mm-player-progress {
+  position: relative;
+  height: 6px;
+  background: var(--background-modifier-border);
+  border-radius: 3px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.mm-player-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--interactive-accent);
+  border-radius: 3px;
+  width: 0%;
+  pointer-events: none;
+}
+
+.mm-player-progress-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 16px;
+  height: 16px;
+  background: var(--interactive-accent);
+  border: 2px solid var(--background-secondary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.mm-player-progress:hover .mm-player-progress-thumb,
+.mm-player-progress:active .mm-player-progress-thumb {
+  opacity: 1;
+}
+
+/* ─── Controls ─── */
+
+.mm-player-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.mm-player-btn {
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+  color: var(--text-normal);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.mm-player-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.mm-player-play {
+  width: 38px;
+  height: 38px;
+  background: var(--interactive-accent) !important;
+  color: var(--text-on-accent, #fff);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.mm-player-play:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.mm-player-skip {
+  color: var(--text-muted);
+  padding: 4px;
+}
+
+.mm-player-time {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+.mm-player-time-error {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.mm-player-spacer {
+  flex: 1;
+}
+
+.mm-player-speed {
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 36px;
+  color: var(--text-muted);
+  background: transparent !important;
+}
+
+.mm-player-dl {
+  color: var(--text-muted);
+  background: transparent !important;
+}
+
+/* (record button moved to card title row) */
+
+/* ─── Settings page — microphone selector ─── */
+
+.mm-mic-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mm-mic-control .dropdown {
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.mm-mic-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--interactive-normal);
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.mm-mic-refresh-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+/* ─── Settings page — date format presets ─── */
+
+.mm-presets-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.mm-preset-btn {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.mm-preset-btn:hover {
+  background: var(--interactive-hover);
+  color: var(--text-normal);
+}
+
+.mm-date-preview {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-accent);
+}
+
+/* ─── Error State ─── */
+
+.mm-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.mm-error-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mm-error-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #e74c3c;
+  flex-shrink: 0;
+}
+
+.mm-error-text {
+  font-size: 14px;
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.mm-error-audio-info {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.mm-btn-retry {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.mm-btn-retry:hover {
+  background: var(--interactive-accent-hover);
+  border-color: var(--interactive-accent-hover);
+}
+
+/* Re-summarize pill — same style as tab bar pills but icon-only */
+.mm-tab-resummary {
+  color: var(--text-muted);
+}
+
+.mm-tab-resummary:hover {
+  color: var(--text-normal);
+}
+
+/* (description row removed) */
+
+/* ─── Footnote Badges ─── */
+
+.mm-footnote-group {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: 4px;
+  vertical-align: baseline;
+}
+
+.mm-footnote-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.mm-footnote-badge:hover {
+  background: var(--interactive-accent-hover);
+  transform: scale(1.1);
+}
+
+/* ─── Transcript Segments ─── */
+
+.mm-segment {
+  display: flex;
+  gap: 8px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.mm-segment-time {
+  color: var(--text-faint);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  min-width: 36px;
+  padding-top: 1px;
+}
+
+.mm-segment-text {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.mm-segment-highlight {
+  background: var(--text-highlight-bg) !important;
+  animation: mm-highlight-fade 2.5s ease-out forwards;
+}
+
+@keyframes mm-highlight-fade {
+  0% { background: var(--text-highlight-bg); }
+  70% { background: var(--text-highlight-bg); }
+  100% { background: transparent; }
+}
+
+/* ─── Speaker Diarization ─── */
+
+.mm-speaker-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding: 0 6px;
+}
+
+.mm-speaker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 12px;
+  border-radius: 12px;
+  background: var(--background-modifier-hover);
+  font-size: 0.82em;
+  cursor: pointer;
+  transition: background 0.15s;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.mm-speaker-pill:hover {
+  background: var(--background-modifier-active-hover);
+}
+
+.mm-speaker-pill-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--text-normal);
+  padding: 0;
+  width: auto;
+  min-width: 60px;
+}
+
+.mm-speaker-group {
+  margin-bottom: 4px;
+}
+
+.mm-speaker-label {
+  font-weight: 600;
+  font-size: 0.82em;
+  color: var(--text-accent);
+  margin: 10px 0 2px 6px;
+}
+
+.mm-speaker-group:first-child .mm-speaker-label {
+  margin-top: 0;
+}
+
+/* ─── Task Checkboxes ─── */
+
+.mm-task-item {
+  list-style: none;
+  margin-left: -20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.mm-task-checkbox {
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: var(--interactive-accent);
+  flex-shrink: 0;
+}
+
+.mm-task-text {
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════
+   Meetings Index Widget
+   ═══════════════════════════════════════════ */
+
+/* Hide code block controls */
+div:has(> .mi-index) .edit-block-button,
+div:has(> .mi-index) .code-block-flair {
+  display: none !important;
+}
+
+/* Remove code-block styling from wrapper */
+div:has(> .mi-index),
+pre:has(> .mi-index) {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.mi-index {
+  padding: 4px 0 16px;
+  font-family: var(--font-interface);
+  background: none !important;
+  border: none !important;
+}
+
+/* ── Header ── */
+
+.mi-header {
+  padding: 0 0 16px;
+}
+
+.mi-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mi-title-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mi-title-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  opacity: 0.65;
+}
+
+.mi-title-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* ── New meeting button ── */
+
+.mi-new-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.mi-new-btn:hover {
+  background: var(--interactive-accent-hover);
+}
+
+.mi-new-btn:active {
+  transform: scale(0.97);
+}
+
+.mi-new-icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.mi-new-label {
+  line-height: 1;
+}
+
+/* ── Sections (collapsible groups) ── */
+
+.mi-section {
+  margin-bottom: 0;
+}
+
+.mi-section-header {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
+}
+
+.mi-section-header:hover {
+  background: var(--background-modifier-hover);
+}
+
+.mi-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mi-section-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-faint);
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+.mi-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--text-faint);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+/* Collapsed state */
+.mi-collapsed .mi-toggle {
+  transform: rotate(-90deg);
+}
+
+.mi-collapsed .mi-list {
+  display: none;
+}
+
+/* ── Meeting rows ── */
+
+.mi-list {
+  padding: 0 0 2px;
+}
+
+.mi-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 4px 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 30px;
+}
+
+.mi-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.mi-row-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.mi-doc-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--text-faint);
+  opacity: 0.55;
+}
+
+.mi-link {
+  font-size: 14px;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mi-date {
+  font-size: 12px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+/* ── Empty state ── */
+
+.mi-empty {
+  padding: 32px 4px;
+  font-size: 14px;
+  color: var(--text-faint);
+  text-align: center;
+}
+
+/* ── Mobile adjustments ── */
+@media (max-width: 600px) {
+  .mm-card {
+    padding: 14px;
+    border-radius: 10px;
+  }
+  .mm-tab {
+    padding: 5px 10px;
+    font-size: 12px;
+    gap: 4px;
+  }
+  .mm-tab-label {
+    display: none;
+  }
+  .mm-tab-icon {
+    opacity: 1;
+  }
+  .mm-card-title {
+    font-size: 14px;
+  }
+  .mm-card-record {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  .mi-row {
+    padding: 6px 4px 6px 22px;
+  }
+  .mi-link {
+    font-size: 13px;
+  }
+  .mi-date {
+    font-size: 11px;
+    margin-left: 8px;
+  }
+  .mm-rec-timer {
+    font-size: 12px;
+  }
+}
