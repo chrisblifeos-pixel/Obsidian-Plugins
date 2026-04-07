@@ -1,0 +1,11 @@
+{
+	"id": "boxoffice",
+	"name": "BoxOffice",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "A plugin to manage your movie, tv series collection and watchlist directly in your vault.",
+	"author": "Vittorio Scaperrotta",
+	"authorUrl": "https://vittorioscaperrotta.me/",
+	"fundingUrl": "https://ko-fi.com/vittorioscaperrotta",
+	"isDesktopOnly": false
+}
