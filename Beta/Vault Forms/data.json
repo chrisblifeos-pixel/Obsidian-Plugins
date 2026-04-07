@@ -1,0 +1,73 @@
+{
+  "forms": [
+    {
+      "id": "Add-Entry-Form-mnp44awv",
+      "active": true,
+      "formFields": [
+        {
+          "type": "text",
+          "name": "test",
+          "className": "test",
+          "description": {
+            "expressionParams": {}
+          },
+          "placeholder": {
+            "expressionParams": {}
+          },
+          "hideExpression": {
+            "expressionParams": {}
+          },
+          "content": {
+            "expressionParams": {}
+          },
+          "required": false,
+          "writeToOutputNote": false
+        },
+        {
+          "type": "date",
+          "name": "date",
+          "className": "date",
+          "description": {
+            "expressionParams": {}
+          },
+          "placeholder": {
+            "expressionParams": {}
+          },
+          "hideExpression": {
+            "expressionParams": {}
+          },
+          "content": {
+            "expressionParams": {}
+          },
+          "required": false,
+          "writeToOutputNote": false
+        },
+        {
+          "type": "textarea",
+          "name": "details",
+          "className": "details",
+          "description": {
+            "expressionParams": {}
+          },
+          "placeholder": {
+            "expressionParams": {}
+          },
+          "hideExpression": {
+            "expressionParams": {}
+          },
+          "content": {
+            "expressionParams": {}
+          },
+          "required": false,
+          "writeToOutputNote": false
+        }
+      ],
+      "title": "Add Entry Form",
+      "description": "Test form for trial purposes",
+      "path": "forms/",
+      "submitLabel": "Submit",
+      "showRibbonIcon": true,
+      "ribbonIconName": "Test Form"
+    }
+  ]
+}
