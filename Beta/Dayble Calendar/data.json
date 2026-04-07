@@ -1,0 +1,128 @@
+{
+  "weekStartDay": 0,
+  "entriesFolder": "Calendar",
+  "iconPlacement": "left",
+  "eventTitleAlign": "center-left",
+  "eventDescAlign": "center-left",
+  "timeFormat": "system",
+  "holderOpen": true,
+  "weeklyNotesHeight": 200,
+  "preferUserColors": false,
+  "eventBgOpacity": 0.5,
+  "eventBorderWidth": 2,
+  "eventBorderRadius": 6,
+  "eventBorderOpacity": 0.25,
+  "dayCellRadius": 8,
+  "eventVerticalPadding": 2,
+  "colorSwatchPosition": "under-title",
+  "onlyAnimateToday": false,
+  "completeBehavior": "dim",
+  "completeColor": "",
+  "customSwatchesEnabled": false,
+  "replaceDefaultSwatches": false,
+  "defaultColorsFolded": true,
+  "customSwatchesFolded": false,
+  "dayCellMaxHeight": 0,
+  "dayCellMinWidth": 0,
+  "holderPlacement": "left",
+  "calendarWeekActive": false,
+  "calendarView": "Day",
+  "weeklyNotesEnabled": false,
+  "scrollToCurrentTime": true,
+  "showCurrentTimeLine": true,
+  "todayModalSplitView": true,
+  "tooltipEnabled": true,
+  "showCopyTextOption": false,
+  "showCopyCalendarIcon": false,
+  "onlyShowPinnedEventsMonth": false,
+  "onlyShowPinnedEventsWeek": false,
+  "onlyShowPinnedEventsAgenda": false,
+  "defaultEventColorName": "",
+  "eventStates": [],
+  "weekTitleFormat": "month_year",
+  "dayTitleFormat": "dddd, D MMMM",
+  "threeDayTitleFormat": "full_range",
+  "threeDayDateFormat": "ddd D",
+  "agendaTitleFormat": "MMMM YYYY",
+  "agendaDateFormat": "dddd, D MMMM",
+  "dimPastEvents": 0.6,
+  "soundMarkComplete": "",
+  "soundNextEvent": "",
+  "soundMarkCompleteName": "",
+  "soundNextEventName": "",
+  "swatches": [
+    {
+      "name": "Red",
+      "color": "#952237",
+      "textColor": "#e9b7c1"
+    },
+    {
+      "name": "Orange",
+      "color": "#ae581e",
+      "textColor": "#eec7ad"
+    },
+    {
+      "name": "Amber",
+      "color": "#a97714",
+      "textColor": "#e8d7ad"
+    },
+    {
+      "name": "Green",
+      "color": "#1d9356",
+      "textColor": "#b2dbc8"
+    },
+    {
+      "name": "Teal",
+      "color": "#1d9993",
+      "textColor": "#a9d9d6"
+    },
+    {
+      "name": "Blue",
+      "color": "#24709f",
+      "textColor": "#b2d2ea"
+    },
+    {
+      "name": "Dark Blue",
+      "color": "#25499d",
+      "textColor": "#b7c4ea"
+    },
+    {
+      "name": "Indigo",
+      "color": "#353597",
+      "textColor": "#c1c1ea"
+    },
+    {
+      "name": "Purple",
+      "color": "#5d33a1",
+      "textColor": "#d4c4ea"
+    },
+    {
+      "name": "Violet",
+      "color": "#77328e",
+      "textColor": "#e0c4ea"
+    },
+    {
+      "name": "Magenta",
+      "color": "#9d2383",
+      "textColor": "#eab3de"
+    },
+    {
+      "name": "Hot Pink",
+      "color": "#a42661",
+      "textColor": "#eab3cc"
+    },
+    {
+      "name": "Brown",
+      "color": "#653c26",
+      "textColor": "#d8c6bb"
+    },
+    {
+      "name": "Gray",
+      "color": "#515d6b",
+      "textColor": "#d5d9de"
+    }
+  ],
+  "userCustomSwatches": [],
+  "eventCategories": [],
+  "triggers": []
+}
