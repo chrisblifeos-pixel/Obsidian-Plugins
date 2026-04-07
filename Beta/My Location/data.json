@@ -1,0 +1,17 @@
+{
+  "format": "full",
+  "customTemplates": [],
+  "savedPlaces": [],
+  "mapProvider": "osm",
+  "language": "",
+  "timezone": "",
+  "tempUnit": "fahrenheit",
+  "includeTimestamp": true,
+  "includeWeather": true,
+  "frontmatterFields": {
+    "location": true,
+    "address": true,
+    "datetime": true,
+    "weather": true
+  }
+}

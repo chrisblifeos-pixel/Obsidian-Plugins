@@ -1,0 +1,14 @@
+.myloc-timezone-preview {
+	margin-top: 8px;
+	font-family: monospace;
+	opacity: 0.8;
+}
+
+.myloc-timezone-preview.myloc-error {
+	color: var(--text-error);
+}
+
+.myloc-template-textarea,
+.myloc-place-textarea {
+	width: 100%;
+}

@@ -1,0 +1,9 @@
+{
+	"id": "myloc",
+	"name": "MyLoc",
+	"version": "0.1.0",
+	"minAppVersion": "1.0.0",
+	"description": "Insert GPS location, address, and weather into notes.",
+	"author": "mkobu",
+	"isDesktopOnly": false
+}
