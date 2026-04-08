@@ -1,0 +1,10 @@
+{
+  "id": "tv-series-db",
+  "name": "TV Series DB",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Add and manage TV series entries in your Obsidian vault database.",
+  "author": "TV Series DB",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
