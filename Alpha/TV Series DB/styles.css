@@ -1,0 +1,324 @@
+/* ══════════════════════════════════════════════════════════════
+   TV Series DB — styles.css
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Modal container ──────────────────────────────────────────── */
+.tv-series-modal .modal-content {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.tv-series-modal.modal {
+  width: min(680px, 96vw);
+  max-height: 90vh;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.tsdb-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px 16px;
+  background: linear-gradient(135deg, var(--interactive-accent) 0%, color-mix(in srgb, var(--interactive-accent) 70%, var(--background-primary)) 100%);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.tsdb-header-icon {
+  font-size: 28px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.tsdb-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  line-height: 1.2 !important;
+  border: none !important;
+}
+
+.tsdb-subtitle {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 1px;
+}
+
+/* ── Scrollable form ──────────────────────────────────────────── */
+.tsdb-form {
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+  max-height: calc(90vh - 88px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Field ────────────────────────────────────────────────────── */
+.tsdb-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tsdb-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Two-column rows ──────────────────────────────────────────── */
+.tsdb-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Inputs ───────────────────────────────────────────────────── */
+.tsdb-input,
+.tsdb-select,
+.tsdb-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  border-radius: 7px;
+  border: 1.5px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  font-size: 0.9rem;
+  font-family: var(--font-interface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.tsdb-input:focus,
+.tsdb-select:focus,
+.tsdb-textarea:focus {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--interactive-accent) 25%, transparent);
+}
+
+.tsdb-input::placeholder,
+.tsdb-textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.tsdb-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+.tsdb-textarea {
+  resize: vertical;
+  min-height: 96px;
+  max-height: 240px;
+  line-height: 1.55;
+}
+
+/* ── Logo uploader ────────────────────────────────────────────── */
+.tsdb-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tsdb-logo-preview {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px dashed var(--background-modifier-border);
+  background: var(--background-secondary);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.tsdb-logo-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  gap: 6px;
+}
+
+.tsdb-logo-placeholder-icon {
+  font-size: 32px;
+  opacity: 0.35;
+}
+
+.tsdb-logo-placeholder-text {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+.tsdb-logo-has-image {
+  border-style: solid;
+  border-color: var(--interactive-accent);
+}
+
+.tsdb-logo-img {
+  display: block;
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.tsdb-logo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.tsdb-file-input-hidden {
+  display: none !important;
+}
+
+.tsdb-hint {
+  margin: 0;
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────── */
+.tsdb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 7px;
+  border: 1.5px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-interface);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.tsdb-btn:active {
+  transform: scale(0.97);
+}
+
+.tsdb-btn-primary {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.tsdb-btn-primary:hover {
+  background: var(--interactive-accent-hover);
+  border-color: var(--interactive-accent-hover);
+}
+
+.tsdb-btn-secondary {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+  border-color: var(--background-modifier-border);
+}
+
+.tsdb-btn-secondary:hover {
+  background: var(--background-modifier-active-hover);
+}
+
+.tsdb-btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--background-modifier-border);
+}
+
+.tsdb-btn-ghost:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.tsdb-btn-danger {
+  background: var(--text-error);
+  color: #fff;
+  border-color: var(--text-error);
+}
+
+.tsdb-btn-danger:hover {
+  opacity: 0.85;
+}
+
+/* ── Button row ───────────────────────────────────────────────── */
+.tsdb-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+/* ── Confirm modal ────────────────────────────────────────────── */
+.tsdb-confirm-modal .modal-content {
+  padding: 24px;
+  max-width: 420px;
+}
+
+.tsdb-confirm-message {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  color: var(--text-normal);
+  line-height: 1.5;
+}
+
+/* ── Scrollbar styling ────────────────────────────────────────── */
+.tsdb-form::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tsdb-form::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tsdb-form::-webkit-scrollbar-thumb {
+  background: var(--background-modifier-border);
+  border-radius: 99px;
+}
+
+/* ── Dark/light mode adjustments ─────────────────────────────── */
+.theme-light .tsdb-logo-preview {
+  background: #f5f5f5;
+}
+
+.theme-dark .tsdb-logo-preview {
+  background: var(--background-primary-alt);
+}
+
+/* ── Responsive tweaks ────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .tsdb-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tv-series-modal.modal {
+    width: 98vw;
+    max-height: 95vh;
+  }
+
+  .tsdb-btn-row {
+    flex-direction: column-reverse;
+  }
+
+  .tsdb-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
