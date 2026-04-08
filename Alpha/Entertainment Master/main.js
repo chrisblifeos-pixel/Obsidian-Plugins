@@ -43,6 +43,15 @@ function imageToBase64(file) {
   });
 }
 
+/** Convert a date string (YYYY-MM-DD or MM-DD-YYYY or similar) to MM-DD-YYYY for display. */
+function formatDate(val) {
+  if (!val) return '';
+  // HTML date inputs return YYYY-MM-DD; convert to MM-DD-YYYY
+  const m = val.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) return `${m[2]}-${m[3]}-${m[1]}`;
+  return val; // already in another format, return as-is
+}
+
 // ============================================================
 //  DOM BUILDER HELPERS
 // ============================================================
@@ -804,22 +813,74 @@ function openSeriesDetail(dm, seriesId, onBack) {
     const series = await dm.getSeries(seriesId);
     if (!series) { close(); return; }
 
+    // Back button
     const backBtn = el('button', { className: 'em-back-btn' });
     backBtn.innerHTML = '← Series List';
     backBtn.addEventListener('click', () => { close(); if (onBack) onBack(); });
     body.appendChild(backBtn);
 
-    const titleRow = el('div', { style: 'display:flex;align-items:center;gap:14px;margin:12px 0 16px;' });
+    // ---- Header: logo + title + edit button ----
+    const titleRow = el('div', { style: 'display:flex;align-items:flex-start;gap:14px;margin:12px 0 14px;' });
     if (series.logo) {
-      const img = el('img', { src: series.logo, style: 'width:60px;height:80px;object-fit:cover;border-radius:10px;' });
+      const img = el('img', { src: series.logo, style: 'width:70px;height:95px;object-fit:cover;border-radius:10px;flex-shrink:0;' });
       titleRow.appendChild(img);
     }
-    const titleInfo = el('div');
-    titleInfo.innerHTML = `<div style="font-size:1.1rem;font-weight:800;">${series.name}</div>
-      <div style="font-size:0.82rem;color:var(--text-muted);">${series.status || ''} · ${series.genre || ''} · ${series.contentRating || ''}</div>`;
+    const titleInfo = el('div', { style: 'flex:1;min-width:0;' });
+    const titleName = el('div', { style: 'font-size:1.15rem;font-weight:800;margin-bottom:4px;' });
+    titleName.textContent = series.name;
+    titleInfo.appendChild(titleName);
+
+    // Meta pills row
+    const metaRow = el('div', { style: 'font-size:0.82rem;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;' });
+    [[series.status,''], [series.genre,''], [series.contentRating,''], [series.network,'']].forEach(([val]) => {
+      if (val) {
+        const pill = el('span', { style: 'background:var(--background-secondary);border-radius:6px;padding:2px 8px;border:1px solid var(--background-modifier-border);' });
+        pill.textContent = val;
+        metaRow.appendChild(pill);
+      }
+    });
+    titleInfo.appendChild(metaRow);
+
+    // Details grid
+    const details = [
+      ['Created By', series.createdBy],
+      ['Premiere', formatDate(series.premiereDate)],
+      ['Finale', formatDate(series.finaleDate)],
+      ['Seasons', series.totalSeasons],
+      ['Episodes', series.totalEpisodes],
+      ['Where to Watch', series.whereToWatch],
+    ].filter(([, v]) => v);
+    if (details.length) {
+      const grid = el('div', { style: 'display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;font-size:0.8rem;margin-bottom:8px;' });
+      details.forEach(([label, val]) => {
+        const row = el('div', { style: 'display:flex;gap:4px;' });
+        const lbl = el('span', { style: 'color:var(--text-muted);white-space:nowrap;' });
+        lbl.textContent = label + ':';
+        const v = el('span', { style: 'color:var(--text-normal);font-weight:600;' });
+        v.textContent = val;
+        row.appendChild(lbl);
+        row.appendChild(v);
+        grid.appendChild(row);
+      });
+      titleInfo.appendChild(grid);
+    }
+
     titleRow.appendChild(titleInfo);
     body.appendChild(titleRow);
 
+    // ---- Synopsis ----
+    if (series.synopsis) {
+      const synDiv = el('div', { style: 'background:var(--background-secondary);border-radius:10px;padding:10px 14px;margin-bottom:14px;border:1px solid var(--background-modifier-border);' });
+      const synLabel = el('div', { style: 'font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:5px;' });
+      synLabel.textContent = 'Synopsis';
+      const synText = el('div', { style: 'font-size:0.88rem;color:var(--text-normal);line-height:1.5;' });
+      synText.textContent = series.synopsis;
+      synDiv.appendChild(synLabel);
+      synDiv.appendChild(synText);
+      body.appendChild(synDiv);
+    }
+
+    // ---- Add Season button + header ----
     const addSeasonBtn = el('button', { className: 'em-btn em-btn-primary' });
     addSeasonBtn.innerHTML = '➕ Add Season';
     addSeasonBtn.addEventListener('click', () => {
@@ -831,14 +892,35 @@ function openSeriesDetail(dm, seriesId, onBack) {
     const subH = el('div', { className: 'em-sub-header', textContent: `Seasons (${(series.seasons || []).length})` });
     body.appendChild(subH);
 
+    // ---- Season list ----
     const seasonList = el('div', { className: 'em-scroll-list' });
     if (!series.seasons || !series.seasons.length) {
       seasonList.appendChild(emptyState('🗓️', 'No seasons added yet'));
     } else {
       series.seasons.forEach(season => {
         const sItem = el('div', { className: 'em-season-item' });
+
+        // Cover image + info row
+        const sContentRow = el('div', { style: 'display:flex;align-items:flex-start;gap:12px;' });
+
+        if (season.cover) {
+          const coverImg = el('img', {
+            src: season.cover,
+            style: 'width:52px;height:72px;object-fit:cover;border-radius:8px;flex-shrink:0;'
+          });
+          sContentRow.appendChild(coverImg);
+        } else {
+          const ph = el('div', { style: 'width:52px;height:72px;border-radius:8px;background:var(--background-modifier-border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;' });
+          ph.textContent = '🗓️';
+          sContentRow.appendChild(ph);
+        }
+
+        const sInfo = el('div', { style: 'flex:1;min-width:0;' });
+
         const sHeader = el('div', { className: 'em-season-header' });
-        sHeader.innerHTML = `<span class="em-season-title">Season ${season.number}</span>`;
+        const sTitle = el('span', { className: 'em-season-title' });
+        sTitle.textContent = `Season ${season.number}`;
+        sHeader.appendChild(sTitle);
 
         const sActions = el('div', { style: 'display:flex;gap:6px;' });
         const viewEpBtn = el('button', { className: 'em-icon-btn', innerHTML: '🎬', title: 'View Episodes' });
@@ -863,12 +945,20 @@ function openSeriesDetail(dm, seriesId, onBack) {
         sActions.appendChild(editSeasonBtn);
         sActions.appendChild(delSeasonBtn);
         sHeader.appendChild(sActions);
-        sItem.appendChild(sHeader);
-        const sSubInfo = el('div', {
-          style: 'font-size:0.8rem;color:var(--text-muted);margin-top:6px;',
-          textContent: `${season.episodes ? season.episodes.length : 0} Episodes · Premiered: ${season.premiereDate || 'TBD'}`
-        });
-        sItem.appendChild(sSubInfo);
+        sInfo.appendChild(sHeader);
+
+        const sSubInfo = el('div', { style: 'font-size:0.8rem;color:var(--text-muted);margin-top:5px;' });
+        sSubInfo.textContent = `${season.episodes ? season.episodes.length : 0} Episodes · Premiered: ${formatDate(season.premiereDate) || 'TBD'}`;
+        sInfo.appendChild(sSubInfo);
+
+        if (season.synopsis) {
+          const sSyn = el('div', { style: 'font-size:0.79rem;color:var(--text-muted);margin-top:4px;font-style:italic;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;' });
+          sSyn.textContent = season.synopsis;
+          sInfo.appendChild(sSyn);
+        }
+
+        sContentRow.appendChild(sInfo);
+        sItem.appendChild(sContentRow);
         seasonList.appendChild(sItem);
       });
     }
@@ -977,14 +1067,17 @@ function openSeasonDetail(dm, seriesId, seasonId, onBack) {
         const item = el('div', { className: 'em-list-item' });
 
         if (ep.clip) {
-          item.appendChild(el('img', { className: 'em-list-item-img', src: ep.clip }));
+          item.appendChild(el('img', {
+            src: ep.clip,
+            style: 'width:96px;height:60px;object-fit:contain;border-radius:6px;background:var(--background-secondary);flex-shrink:0;'
+          }));
         } else {
           item.appendChild(el('div', { className: 'em-list-item-img-placeholder', innerHTML: '🎞️' }));
         }
 
         const info = el('div', { className: 'em-list-item-info' });
         info.appendChild(el('div', { className: 'em-list-item-title', textContent: `Ep ${ep.number}: ${ep.title}` }));
-        info.appendChild(el('div', { className: 'em-list-item-sub', textContent: `${ep.airDate || ''} · ${ep.runtime || ''}` }));
+        info.appendChild(el('div', { className: 'em-list-item-sub', textContent: `${formatDate(ep.airDate)} · ${ep.runtime || ''}` }));
         item.appendChild(info);
 
         const actions = el('div', { className: 'em-list-item-actions' });
@@ -1227,7 +1320,7 @@ function openTVLogList(dm) {
       const item = el('div', { className: 'em-log-item' });
       const info = el('div', { className: 'em-log-info' });
       info.appendChild(el('div', { className: 'em-log-title', textContent: `${entry.seriesName} – ${entry.episodeName}` }));
-      info.appendChild(el('div', { className: 'em-log-sub', textContent: `${entry.seasonNum} · ${entry.date || ''} ${entry.time || ''}` }));
+      info.appendChild(el('div', { className: 'em-log-sub', textContent: `${entry.seasonNum} · ${formatDate(entry.date)} ${entry.time || ''}` }));
       if (entry.comments) info.appendChild(el('div', { className: 'em-log-sub', textContent: entry.comments }));
       const stars = el('div', { className: 'em-log-stars', innerHTML: starsHtml(entry.rating) });
 
@@ -1377,7 +1470,7 @@ function openMovieList(dm) {
 
       const info = el('div', { className: 'em-list-item-info' });
       info.appendChild(el('div', { className: 'em-list-item-title', textContent: movie.title }));
-      info.appendChild(el('div', { className: 'em-list-item-sub', textContent: `${movie.genre || ''} · ${movie.releaseDate || ''}` }));
+      info.appendChild(el('div', { className: 'em-list-item-sub', textContent: `${movie.genre || ''} · ${formatDate(movie.releaseDate)}` }));
       item.appendChild(info);
 
       const actions = el('div', { className: 'em-list-item-actions' });
@@ -1499,7 +1592,7 @@ function openMovieLogList(dm) {
       const item = el('div', { className: 'em-log-item' });
       const info = el('div', { className: 'em-log-info' });
       info.appendChild(el('div', { className: 'em-log-title', textContent: entry.movieTitle }));
-      info.appendChild(el('div', { className: 'em-log-sub', textContent: `${entry.date || ''} ${entry.time || ''}` }));
+      info.appendChild(el('div', { className: 'em-log-sub', textContent: `${formatDate(entry.date)} ${entry.time || ''}` }));
       if (entry.comments) info.appendChild(el('div', { className: 'em-log-sub', textContent: entry.comments }));
       const stars = el('div', { className: 'em-log-stars', innerHTML: starsHtml(entry.rating) });
 
