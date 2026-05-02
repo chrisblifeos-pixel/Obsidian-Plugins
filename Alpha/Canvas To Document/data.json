@@ -1,0 +1,11 @@
+{
+  "outputFolder": "Inbox",
+  "includeCardText": true,
+  "includeLinks": true,
+  "includeGroups": true,
+  "includeEmbeds": true,
+  "prependFrontmatter": true,
+  "linkStyle": "wikilink",
+  "groupSeparator": "---",
+  "overwriteExisting": false
+}
