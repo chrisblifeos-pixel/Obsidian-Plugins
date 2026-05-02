@@ -1,0 +1,12 @@
+/* Canvas to Markdown – styles.css */
+
+.canvas-to-md-notice {
+  font-weight: 500;
+}
+
+.modal-button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
