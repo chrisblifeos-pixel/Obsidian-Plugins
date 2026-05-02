@@ -1,0 +1,10 @@
+{
+  "id": "canvas-to-markdown",
+  "name": "Canvas to Markdown",
+  "version": "1.0.0",
+  "minAppVersion": "1.1.0",
+  "description": "Export Obsidian Canvas (.canvas) files to readable Markdown notes. Works on mobile (Android).",
+  "author": "Chris Boissonnault",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
