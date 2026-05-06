@@ -1,0 +1,10 @@
+{
+  "id": "file-gateway",
+  "name": "File Gateway",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Import files from your device into your vault and export vault files back to your device. Full support for markdown, PDF, DOCX, images, JSON, CSV, HTML, CSS and more.",
+  "author": "File Gateway Plugin",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
